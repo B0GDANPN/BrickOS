@@ -1,0 +1,2 @@
+# BrickOS
+Delaem operacionku
