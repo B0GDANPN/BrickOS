@@ -15,7 +15,3 @@ for i in range(N):
 
 with open(f"./bin/{file_name}.bin", "wb") as f:
     f.write(bin_data)
-
-
-with open(f"./bin/{file_name}_check_sum.txt", "w") as f:
-    f.write(str(check_sum))

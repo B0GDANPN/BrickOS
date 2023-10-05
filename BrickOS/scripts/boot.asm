@@ -12,9 +12,9 @@ mov es, ax ; mutable address
 mov ah, 0x2 ; number command for interrupt
 mov al, 0x1 ; count of sector for reading
 mov ch, 0x0 ; number start cylinder
-; 384 kb is 768 sectors = 21 cylinder and 12 remaining sectors
+
 reading_cylinder:
-    cmp ch, 0x15 ; max count cylinders is 21
+    cmp ch, 0x14 ; max count cylinders
     je end_cylinder ; after read last cylinder
 	mov dh, 0x0 ; start number head
 reading_head:
@@ -23,8 +23,8 @@ reading_head:
     mov cl, 0x1 ; number of start sector
 reading_sector:
     cmp cl, 0x13 ; sector <19
-    je end_sector ; after reading head
-    int 0x13 ;read in buffer
+    je end_sector ; after reading second head
+    int 0x13 read in buffer
     mov ax, es ; es - address register, add number - prohibited
     add ax, 0x20
     mov es, ax
@@ -32,27 +32,13 @@ reading_sector:
     mov al, 0x1 ; return value AX
     add cl, 0x1 ; next sector
     jmp reading_sector
-end_sector: ;after reading second head
+end_sector: after reading second head
     add dh, 0x1 ; next head
 	jmp reading_head
 end_head:
 	add ch, 0x1 ; next cylinder
 	jmp reading_cylinder
 end_cylinder:
-; reading remaining 12 sectors
-mov cl, 0x1 ; number of start sector
-reading_remaining_sectors:
-    cmp cl, 0xD ; sector <13
-    je end_remaining ; after reading remaining sectors
-    int 0x13 ; read in buffer
-    mov ax, es ; es - address register, add number - prohibited
-    add ax, 0x20
-    mov es, ax
-    mov ah, 0x2 ; return value AX
-    mov al, 0x1 ; return value AX
-    add cl, 0x1 ; next sector
-    jmp reading_remaining_sectors
-end_remaining:
 
 mov ax, es ; end of range
 mov dx, 0x2000 ; start of range

@@ -1,5 +1,8 @@
-boot_img = r"./scripts/boot.img"
-mess_bin = r"./bin/mess.bin"
+import os
+
+
+boot_img = rf"./BrickOS/scripts/boot.img"
+mess_bin = rf"./bin/mess.bin"
 
 check_sum = 0
 
