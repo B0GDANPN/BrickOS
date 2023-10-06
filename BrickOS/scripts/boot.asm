@@ -9,8 +9,6 @@ sti
 mov bx, 0x0 ; const shift
 mov ax, 0x2000
 mov es, ax ; mutable address
-mov ah, 0x2 ; number command for interrupt
-mov al, 0x1 ; count of sector for reading
 mov ch, 0x0 ; number start cylinder
 
 reading_cylinder:
@@ -24,15 +22,16 @@ reading_head:
 reading_sector:
     cmp cl, 0x13 ; sector <19
     je end_sector ; after reading second head
-    int 0x13 read in buffer
+    mov ah, 0x2 ; number command for interrupt
+    mov al, 0x1 ; count of sector for reading
+    int 0x13 ; read in buffer
+    jc error_handler
     mov ax, es ; es - address register, add number - prohibited
-    add ax, 0x20
-    mov es, ax
-    mov ah, 0x2 ; return value AX
-    mov al, 0x1 ; return value AX
+    add ax, 0x20 ; increase address
+    mov es, ax ; es is address
     add cl, 0x1 ; next sector
     jmp reading_sector
-end_sector: after reading second head
+end_sector: ; after reading second head
     add dh, 0x1 ; next head
 	jmp reading_head
 end_head:
@@ -43,7 +42,7 @@ end_cylinder:
 mov ax, es ; end of range
 mov dx, 0x2000 ; start of range
 mov es, dx ; ES - address register, mov number - prohibited
-mov ecx, 0 ; checksum=0
+mov cx, 0 ; checksum=0
 mov ch, 0 ; correct print checksum, we use only CL
 count_checksum:
     cmp dx, ax
@@ -60,7 +59,7 @@ count_checksum:
     mov es, dx
     jmp count_checksum
 
-
+error_handler:
 infinite_loop: ; infinite loop
   jmp infinite_loop
 
