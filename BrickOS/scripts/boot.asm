@@ -43,9 +43,8 @@ mov ax, es ; end of range
 mov dx, 0x2000 ; start of range
 mov es, dx ; ES - address register, mov number - prohibited
 mov cx, 0 ; checksum=0
-mov ch, 0 ; correct print checksum, we use only CL
 count_checksum:
-    cmp dx, ax
+    cmp dx, ax ; dx < end of range
     je infinite_loop ; quit cycle
     inner_checksum: ; bl 0..15, for reading all bytes
         cmp bl, 0x10 ; bl<16
@@ -60,6 +59,8 @@ count_checksum:
     jmp count_checksum
 
 error_handler:
+    mov dl, 1
+
 infinite_loop: ; infinite loop
   jmp infinite_loop
 
