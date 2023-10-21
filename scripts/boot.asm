@@ -1,4 +1,4 @@
-BITS 16
+[BITS 16]
 
 cli ; stack settings
 	xor ax, ax ; getting 0
@@ -10,12 +10,12 @@ gdt_start:
 gdt_code:
     dw 0xffff
     dw 0x0000
-    dw 0x9200
+    dw 0x9a00
     dw 0x00cf
 gdt_data:
     dw 0xffff
     dw 0x0000
-    dw 0x9a00
+    dw 0x9200
     dw 0x00cf
 gdt_end:
 lgdt [gdt_descriptor]
@@ -30,7 +30,7 @@ xor eax, eax
 mov cr0, eax ; in fact, ax
 jmp CODE_SEG:protected_mode_tramplin + 0x7C00
 
-BITS 32
+[BITS 32]
 protected_mode_tramplin:
   mov esp, 0x20000
   mov ax, DATA_SEG 
