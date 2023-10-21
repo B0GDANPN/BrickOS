@@ -27,6 +27,7 @@ CODE_SEG equ gdt_code - gdt_start
 DATA_SEG equ gdt_data - gdt_start
 mov cr0,ax
 jmp CODE_SEG:protected_mode_tramplin + 0x7C00
+
 [BITS 32]
 protected_mode_tramplin:
   mov esp, 0x20000
