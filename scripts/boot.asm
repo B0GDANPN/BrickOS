@@ -4,7 +4,6 @@ cli ; stack settings
 	xor ax, ax ; getting 0
 	mov ss, ax ; ss = 0
 	mov sp, 0x7C00 ; setting stack to right position
-sti
 
   mov bx, 0x0 ; const shift
 mov ax, 0x2000
@@ -39,9 +38,7 @@ end_head:
 	jmp reading_cylinder
 end_cylinder:
 
-cli
 lgdt [gdt_descriptor + 0x7c00]
-sti
 
 CODE_SEG equ gdt_code - gdt_start
 DATA_SEG equ gdt_data - gdt_start
