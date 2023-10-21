@@ -8,25 +8,38 @@ cli ; stack settings
 gdt_start:
     dq 0x0 ; null descriptor
 gdt_code:
-    db ...
+    dw 0xffff
+    dw 0x0000
+    dw 0x9200
+    dw 0x00cf
 gdt_data:
-    db ...
+    dw 0xffff
+    dw 0x0000
+    dw 0x9a00
+    dw 0x00cf
 gdt_end:
-
+lgdt [gdt_descriptor]
 gdt_descriptor:
     dw gdt_end - gdt_start - 1
     dd gdt_start + 0x20000 ; linear address in copy vbr
 
 CODE_SEG equ gdt_code - gdt_start
 DATA_SEG equ gdt_data - gdt_start
-
-lgdt [gdt_descriptor]
-
-gdt_descriptor:
-    dw gdt_end - gdt_start - 1
-    dd gdt_start + 0x20000
-
-
+mov cr0,ax
+mov esp, 0x20000
+mov ds, DATA_SEG
+mov ss, ds
+mov es, ds
+mov ds, ds
+mov gs, ds
+mov fs, ds
+jmp CODE_SEG:protected_mode_tramplin + 0x7C00
+[BITS 32]
+protected_mode_tramplin:
+  ; TODO: setup data segment registers
+  ; TODO: setup stack
+  jmp CODE_SEG:0x20200
+  mov dw[0xB8000], 0
 sti
 
 
