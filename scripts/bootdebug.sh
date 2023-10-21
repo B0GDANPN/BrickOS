@@ -1,0 +1,1 @@
+bochsdbg -f os-dbg.bxrc -q
