@@ -40,7 +40,7 @@ end_head:
 end_cylinder:
 
 cli
-lgdt [gdt_descriptor]
+lgdt [gdt_descriptor + 0x7c00]
 sti
 
 CODE_SEG equ gdt_code - gdt_start
