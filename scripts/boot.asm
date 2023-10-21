@@ -26,8 +26,8 @@ gdt_descriptor:
 CODE_SEG equ gdt_code - gdt_start
 DATA_SEG equ gdt_data - gdt_start
 
-xor ax, ax
-mov cr0, ax ; in fact, ax
+xor eax, eax
+mov cr0, eax ; in fact, ax
 jmp CODE_SEG:protected_mode_tramplin + 0x7C00
 
 BITS 32
