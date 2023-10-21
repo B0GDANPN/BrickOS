@@ -46,7 +46,8 @@ sti
 CODE_SEG equ gdt_code - gdt_start
 DATA_SEG equ gdt_data - gdt_start
 
-mov eax, 1
+mov eax, cr0 
+or al, 1
 mov cr0, eax ; in fact, ax
 ;jmp 0x20200
 jmp CODE_SEG:protected_mode_tramplin + 0x7C00
