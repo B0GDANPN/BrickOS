@@ -1,4 +1,4 @@
-[BITS 16]
+BITS 16
 
 cli ; stack settings
 	xor ax, ax ; getting 0
@@ -27,18 +27,18 @@ CODE_SEG equ gdt_code - gdt_start
 DATA_SEG equ gdt_data - gdt_start
 
 xor ax, ax
-mov cr0, ax
+mov cr0, ax ; in fact, ax
 jmp CODE_SEG:protected_mode_tramplin + 0x7C00
 
-[BITS 32]
+BITS 32
 protected_mode_tramplin:
   mov esp, 0x20000
-  mov ds, DATA_SEG
-  mov ss, ds
-  mov es, ds
-  mov ds, ds
-  mov gs, ds
-  mov fs, ds
+  mov ax, DATA_SEG 
+  mov ss, ax
+  mov ds, ax
+  mov es, ax
+  mov gs, ax
+  mov fs, ax
   jmp CODE_SEG:0x20200
   ;mov dw[0xB8000], 0
 sti
