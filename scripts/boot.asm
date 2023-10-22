@@ -45,10 +45,8 @@ DATA_SEG equ gdt_data - gdt_start
 
 mov eax, cr0 
 or al, 1
-mov cr0, eax ; in fact, ax
-;jmp 0x20200
+mov cr0, eax 
 jmp CODE_SEG:protected_mode_tramplin + 0x7C00
-;jmp protected_mode_tramplin
 
 [BITS 32]
 protected_mode_tramplin:
@@ -60,8 +58,6 @@ protected_mode_tramplin:
   mov gs, ax
   mov fs, ax
   jmp CODE_SEG:0x20200
-  ;jmp 0x2020:0
-  ;mov dw[0xB8000], 0
 
 
 
@@ -87,16 +83,12 @@ gdt_code:
     dw 0xffff
     dw 0x0000
     dw 0x9a00
-    ;dw 0x009a
     dw 0x00cf
-    ;dw 0xcf00
 gdt_data:
     dw 0xffff
     dw 0x0000
     dw 0x9200
-    ;dw 0x0092
     dw 0x00cf
-    ;dw 0xcf00
 gdt_end:
 
 
