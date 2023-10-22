@@ -38,6 +38,10 @@ end_head:
 	jmp reading_cylinder
 end_cylinder:
 
+mov ah, 0x01
+mov ch, 0x3F
+int 0x10; disable cursor
+
 lgdt [gdt_descriptor + 0x7c00]
 
 mov eax, cr0 
@@ -66,11 +70,7 @@ error_handler:
   jmp infinite_loop
 
 
-
-gdt_descriptor:
-    dw gdt_end - gdt_start - 1
-    dd gdt_start + 0x20000 ; linear address in copy vbr
-
+align 8
 gdt_start:
     dw 0x0000 ; null descriptor
     dw 0x0000
@@ -87,7 +87,9 @@ gdt_data:
     dw 0x9200
     dw 0x00cf
 gdt_end:
-
+gdt_descriptor:
+    dw gdt_end - gdt_start - 1
+    dd gdt_start + 0x20000 ; linear address in copy vbr
 
 times 510-($-$$) db 0
 
