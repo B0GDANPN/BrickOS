@@ -40,9 +40,6 @@ end_cylinder:
 
 lgdt [gdt_descriptor + 0x7c00]
 
-CODE_SEG equ gdt_code - gdt_start
-DATA_SEG equ gdt_data - gdt_start
-
 mov eax, cr0 
 or al, 1
 mov cr0, eax 
@@ -93,5 +90,9 @@ gdt_end:
 
 
 times 510-($-$$) db 0
+
+
+CODE_SEG equ gdt_code - gdt_start
+DATA_SEG equ gdt_data - gdt_start
 
 dw 0xAA55
