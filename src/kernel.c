@@ -31,6 +31,10 @@ void kernel_entry() {
   println("BrickOS");
   println("Version 1.0");
   println("Copyright (C) 2023");
+
+  print_format("x: %d\ny: %d\n", 10, 20);
+
+  //print_format("%d, %d", 10, 20);
   // print("@");
   // for (int i = 0; i < 100; ++i) {
   //   for (int j = 0; j < i; ++j)

@@ -1,16 +1,20 @@
-// #define va_start(list) (void*) \
-// list; \
-// __asm{  \
-//   mov list, esp \
-// };
-// #define va_arg(list, type) \
-// (type)(list + sizeof(type)); \
-// list = (void*)((type)list - sizeof(type));
 
-// #define va_end(list) (list = (void)0);
+
+typedef void* va_list;
+
+#define va_start(list, paramN) \
+list = (void*)(&paramN + 1)
+
+
+#define va_arg(list, type) \
+*(type*)(list); \
+list = (void*)((type*)list + 1)
+
+#define va_end(list) (list = (void*)0)
 
 #define START_OF_DISPLAY 0xB8000
 #define END_OF_DISPLAY 0xB8FA0
+#define COLOR_BLACK 0xf
 
 #include "print.h"
 
@@ -45,6 +49,16 @@ void print_int(int num){
   print(res_buffer);
 }
 
+void print_char(char symbol){
+    short* a = careet_ptr;
+    if (a >= (short*)END_OF_DISPLAY) {
+      shift_screen();
+      a -= 80;
+    }
+    short printed_char = (COLOR_BLACK << 8) + symbol;
+    *a = printed_char;
+    careet_ptr = a + 1;
+}
 
 void vga_print_char(char symbol, short color, int x, int y){
     short* a = (short*)(START_OF_DISPLAY) + y*80 + x;
@@ -68,10 +82,13 @@ void vga_print_string(char* string, short color, short** start){
   } 
   *start = a;
 }
+void enter(){
+  careet_ptr = (short*)START_OF_DISPLAY + ((careet_ptr - (short*)START_OF_DISPLAY) / 80 + 1) * 80;
+}
 
 void println(char* str) {
   print(str);
-  careet_ptr = (short*)START_OF_DISPLAY+((careet_ptr - (short*)START_OF_DISPLAY)/80 + 1)*80;
+  enter();
 }
 
 void print(char* str) {
@@ -97,3 +114,47 @@ void shift_screen(){
   }
 }
 
+// void print_format(char* str, ...){
+//   va_list list;
+//   va_start(list, str);
+//   int n = va_arg(list, int);
+//   print_int(n);
+//   n = va_arg(list, int);
+//   print_int(n);
+// }
+
+void print_format(char* str, ...) {
+	va_list list;
+	va_start(list, str);
+	char* tmp = str;
+	char flag = 0;
+	while (1) {
+		char c = *tmp;
+		if (!c) {
+			break;
+		}
+    if (c == '\n') {
+      enter();
+    } else if (c == '%') {
+			flag = 1;
+		} else if (flag) {
+			if (c == 'd') {
+				int n = va_arg(list, int);
+				print_int(n);
+			} else if (c == 's') {
+				char* n = va_arg(list, char*);
+				print(n);
+			} else if (c == 'c') {
+				char n = va_arg(list, char);
+				print_char(n);
+			} else if (c == 'x') {
+				// int n = va_arg(list, int);
+				// print_hex(n);
+			}
+			flag = 0;
+		} else {
+			print_char(c);
+		}
+		tmp++;
+	}
+}
