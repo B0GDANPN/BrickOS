@@ -1,7 +1,2 @@
-**/*.bin
-**/*.o
-**/*.tmp
-**/*.img
-**/*.ini
-tmp
+build
 .vscode

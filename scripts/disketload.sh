@@ -1,13 +1,13 @@
-@RD /S /Q "../build"
+rm -r ../build
 mkdir ../build
 cd ../build
-nasm -fbin boot.asm -o boot.bin
+nasm -fbin ../src/boot.asm -o boot.bin
 dd if=/dev/zero of=boot.img bs=1024 count=1440
 dd if=boot.bin of=boot.img conv=notrunc
 
 #loading kernel.c
-gcc -m32 -ffreestanding -c -o kernel.o kernel.c
-gcc -m32 -ffreestanding -c -o print.o print/print.c
+gcc -m32 -ffreestanding -c -o kernel.o ../src/kernel.c
+gcc -m32 -ffreestanding -c -o print.o ../src/print/print.c
 ld -m i386pe -o kernel.tmp -Ttext 0x20200 kernel.o print.o
 objcopy -I pe-i386 -O binary kernel.tmp kernel.bin
 dd if=kernel.bin of=boot.img conv=notrunc seek=1
