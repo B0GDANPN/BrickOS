@@ -1,4 +1,4 @@
-rm -r ../build
+rm -f -r ../build
 mkdir ../build
 cd ../build
 nasm -fbin ../src/boot.asm -o boot.bin
