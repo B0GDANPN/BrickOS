@@ -3,12 +3,12 @@
 typedef void* va_list;
 
 #define va_start(list, paramN) \
-list = (void*)(&paramN + 1)
+list = (void*)&paramN + 4
 
 
 #define va_arg(list, type) \
 *(type*)(list); \
-list = (void*)((type*)list + 1)
+list = (void*)(list + 4)
 
 #define va_end(list) (list = (void*)0)
 

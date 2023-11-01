@@ -1,0 +1,12 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "echotest",
+            "command": "./scripts/start.sh",
+            "args": [],
+            "type": "shell",
+            "problemMatcher": []
+        }
+    ]
+}
