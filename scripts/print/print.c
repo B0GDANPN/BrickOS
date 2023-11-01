@@ -14,7 +14,7 @@
 
 #include "print.h"
 
-short* careet_ptr = (short*)START_OF_DISPLAY;
+short* careet_ptr;
 
 void print_int(int num){
   if (num == 0){
@@ -86,6 +86,10 @@ void vga_clear_screen(){
   }   
 }
 
+void init_printer(){
+    vga_clear_screen();
+    careet_ptr = (short*)START_OF_DISPLAY;
+}
 void shift_screen(){
   short* a = (short*)START_OF_DISPLAY;
   while (a < (short*)(END_OF_DISPLAY - 80)){

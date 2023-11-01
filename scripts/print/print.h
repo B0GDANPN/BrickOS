@@ -7,3 +7,4 @@ void print(char* str);
 void print_int(int n);
 void println(char* str);
 void shift_screen();
+void init_printer() ;
