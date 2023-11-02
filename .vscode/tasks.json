@@ -2,11 +2,17 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "echotest",
-            "command": "./scripts/start.sh",
-            "args": [],
+            "label": "Bootload",
+            
+            "command": "sh scripts/start.sh",
+            "options": {
+                "shell": {
+                    "executable": "C:\\cygwin64\\bin\\bash.exe",
+                }
+            },
+            
             "type": "shell",
-            "problemMatcher": []
+            "problemMatcher": [],
         }
     ]
 }

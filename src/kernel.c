@@ -25,16 +25,17 @@ char* logo[] = {
 
 void kernel_entry() {
   vga_clear_screen(); 
-  for (int i = 0; i < sizeof(logo) / sizeof(logo[0]); i++) {
-    println(logo[i]);
-  }
-  println("BrickOS");
-  println("Version 1.0");
-  println("Copyright (C) 2023");
+  // for (int i = 0; i < sizeof(logo) / sizeof(logo[0]); i++) {
+  //   println(logo[i]);
+  // }
+  // println("BrickOS");
+  // println("Version 1.0");
+  // println("Copyright (C) 2023");
 
   for (int i = 0; i < 10; ++i) {
-    print_format("%d: %d\n", i, i*i);
+    print_format("%s %x: %x\n", "the number is", i, i*i);
   }
+  // print_num(15, 16);
 
   for (;;);
 }

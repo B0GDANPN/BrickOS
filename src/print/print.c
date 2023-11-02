@@ -3,12 +3,16 @@
 typedef void* va_list;
 
 #define va_start(list, paramN) \
-list = (void*)&paramN + 4
-
+list = (void*)&paramN + sizeof(&paramN);
+// Загадки Жака Фрэско:
+// Почему то, что написано выше работает и компилится?
+// И почему это не работает?
+// list = (void*)(&paramN + sizeof(&paramN))
+// На размышления даю 5 криворуких программистов языка СИ
 
 #define va_arg(list, type) \
 *(type*)(list); \
-list = (void*)(list + 4)
+list = (void*)(list + sizeof(type*));
 
 #define va_end(list) (list = (void*)0)
 
@@ -20,9 +24,10 @@ list = (void*)(list + 4)
 
 short* careet_ptr = (short*)START_OF_DISPLAY;
 
-void print_int(int num){
+
+void print_num(int num, int base){
   if (num == 0){
-    print("0");
+    print_char('0');
     return;
   }
 
@@ -37,8 +42,14 @@ void print_int(int num){
   int j = 0;
   char tmp[10];
   while (num > 0){
-    tmp[j] = (char)((num%10) + '0');
-    num /= 10;
+    int digit = num % base;
+    if (digit < 10){
+      tmp[j] = (char)(digit + '0');
+    } else {
+      tmp[j] = (char)(digit - 10 + 'a');
+    }
+
+    num /= base;
     j++;
   }
   for (int k = j - 1; k >= 0; k--){
@@ -60,14 +71,14 @@ void print_char(char symbol){
     careet_ptr = a + 1;
 }
 
-void vga_print_char(char symbol, short color, int x, int y){
+void print_char_designed(char symbol, short color, int x, int y){
     short* a = (short*)(START_OF_DISPLAY) + y*80 + x;
     short printed_char = (color << 8) + symbol;
     *a = printed_char;
     
 }
 
-void vga_print_string(char* string, short color, short** start){
+void print_string(char* string, short color, short** start){
   short* a = *start;
   while (*string != '\0'){
     if (a >= (short*)END_OF_DISPLAY){
@@ -92,7 +103,7 @@ void println(char* str) {
 }
 
 void print(char* str) {
-    vga_print_string(str, 0xf, &careet_ptr);
+    print_string(str, 0xf, &careet_ptr);
 }
 
 void vga_clear_screen(){
@@ -114,15 +125,6 @@ void shift_screen(){
   }
 }
 
-// void print_format(char* str, ...){
-//   va_list list;
-//   va_start(list, str);
-//   int n = va_arg(list, int);
-//   print_int(n);
-//   n = va_arg(list, int);
-//   print_int(n);
-// }
-
 void print_format(char* str, ...) {
 	va_list list;
 	va_start(list, str);
@@ -140,7 +142,7 @@ void print_format(char* str, ...) {
 		} else if (flag) {
 			if (c == 'd') {
 				int n = va_arg(list, int);
-				print_int(n);
+				print_num(n, 10);
 			} else if (c == 's') {
 				char* n = va_arg(list, char*);
 				print(n);
@@ -148,8 +150,8 @@ void print_format(char* str, ...) {
 				char n = va_arg(list, char);
 				print_char(n);
 			} else if (c == 'x') {
-				// int n = va_arg(list, int);
-				// print_hex(n);
+				int n = va_arg(list, int);
+				print_num(n, 16);
 			}
 			flag = 0;
 		} else {
