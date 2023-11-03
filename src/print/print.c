@@ -3,16 +3,11 @@
 typedef void* va_list;
 
 #define va_start(list, paramN) \
-list = (void*)&paramN + sizeof(&paramN);
-// Загадки Жака Фрэско:
-// Почему то, что написано выше работает и компилится?
-// И почему это не работает?
-// list = (void*)(&paramN + sizeof(&paramN))
-// На размышления даю 5 криворуких программистов языка СИ
+list = (char*)&paramN + sizeof(&paramN);
 
 #define va_arg(list, type) \
 *(type*)(list); \
-list = (void*)(list + sizeof(type*));
+list = (char*)(list + sizeof(type*));
 
 #define va_end(list) (list = (void*)0)
 
