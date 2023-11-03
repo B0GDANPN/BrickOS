@@ -11,6 +11,9 @@ dd if=boot.bin of=boot.img conv=notrunc
 #loading kernel.c
 gcc -m32 -ffreestanding -c -o kernel.o ../src/kernel.c
 gcc -m32 -ffreestanding -c -o print.o ../src/print/print.c
-ld -m i386pe -o kernel.tmp -Ttext 0x20200 kernel.o print.o
+gcc -m32 -ffreestanding -c -o utils.o ../src/utils/utils.c
+gcc -m32 -ffreestanding -c -o alloc.o ../src/alloc/alloc.c
+gcc -m32 -ffreestanding -c -o idt.o ../src/idt/idt.c
+ld -m i386pe -o kernel.tmp -Ttext 0x20200 kernel.o print.o utils.o alloc.o idt.o
 objcopy -I pe-i386 -O binary kernel.tmp kernel.bin
 dd if=kernel.bin of=boot.img conv=notrunc seek=1

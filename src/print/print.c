@@ -1,22 +1,11 @@
-typedef void* va_list;
-
-#define va_start(list, paramN) \
-list = (char*)&(paramN) + sizeof(&(paramN));
-
-#define va_arg(list, type) \
-*(type*)(list); \
-list = (char*)((list) + sizeof(type*));
-
-#define va_end(list) ((list) = (void*)0)
+#include "print.h"
+#include "../utils/utils.h"
 
 #define START_OF_DISPLAY (short*)0xB8000
 #define END_OF_DISPLAY (short*)0xB8FA0
 #define COLOR_BLACK 0xf
 
-#include "print.h"
-
 static short* careet_ptr = START_OF_DISPLAY;
-
 
 void print_num(int num, int base){
   char res_buffer[12];
@@ -81,25 +70,9 @@ void print_string(char* string, short color, short** start){
   } 
   *start = a;
 }
+
 void new_line(){
   careet_ptr = START_OF_DISPLAY + ((careet_ptr - START_OF_DISPLAY) / 80 + 1) * 80;
-}
-
-void memcpy(void *dest, const void *src, size_t size)
-{
-  char* dest_char = (char*)dest;
-  char* src_char = (char*)src;
-  for (char* ptr = src_char; ptr < src_char + size; ++ptr){
-    *(dest_char++) = *(char*)ptr;
-  }
-}
-
-void memset(void *dest, char ch, size_t count)
-{
-  char* dest_char = (char*)dest;
-  for (char* ptr = dest_char; ptr < dest_char + count; ++ptr){
-    *ptr = ch;
-  }
 }
 
 void println(char* str) {

@@ -20,8 +20,4 @@ void println(char *str);
 
 void new_line();
 
-void memcpy(void *dest, const void *src, size_t size);
-
-void memset(void *dest, char ch, size_t count);
-
 void shift_screen();
