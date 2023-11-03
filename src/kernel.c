@@ -32,9 +32,9 @@ void kernel_entry() {
   println("Version 1.0");
   println("Copyright (C) 2023");
 
-  // for (int i = 0; i < 10; ++i) {
-  //   print_format("%s %d: %d\n", "the number is", i, i*i);
-  // }
+  for (int i = 0; i < 10; ++i) {
+    print_format("%s %d: %d\n", "the number is", i, i*i-1);
+  }
   // print_num(15, 16);
 
   for (;;);

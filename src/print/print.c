@@ -1,31 +1,24 @@
-
-
 typedef void* va_list;
 
 #define va_start(list, paramN) \
-list = (char*)&paramN + sizeof(&paramN);
+list = (char*)&(paramN) + sizeof(&(paramN));
 
 #define va_arg(list, type) \
 *(type*)(list); \
-list = (char*)(list + sizeof(type*));
+list = (char*)((list) + sizeof(type*));
 
-#define va_end(list) (list = (void*)0)
+#define va_end(list) ((list) = (void*)0)
 
-#define START_OF_DISPLAY 0xB8000
-#define END_OF_DISPLAY 0xB8FA0
+#define START_OF_DISPLAY (short*)0xB8000
+#define END_OF_DISPLAY (short*)0xB8FA0
 #define COLOR_BLACK 0xf
 
 #include "print.h"
 
-short* careet_ptr = (short*)START_OF_DISPLAY;
+static short* careet_ptr = START_OF_DISPLAY;
 
 
 void print_num(int num, int base){
-  if (num == 0){
-    print_char('0');
-    return;
-  }
-
   char res_buffer[12];
   int i = 0;
   if (num < 0){
@@ -36,7 +29,7 @@ void print_num(int num, int base){
 
   int j = 0;
   char tmp[10];
-  while (num > 0){
+  do{ // TODO: use do while cycle
     int digit = num % base;
     if (digit < 10){
       tmp[j] = (char)(digit + '0');
@@ -46,7 +39,7 @@ void print_num(int num, int base){
 
     num /= base;
     j++;
-  }
+  } while (num > 0);
   for (int k = j - 1; k >= 0; k--){
     res_buffer[i] = tmp[k];
     i++;
@@ -57,7 +50,7 @@ void print_num(int num, int base){
 
 void print_char(char symbol){
     short* a = careet_ptr;
-    if (a >= (short*)END_OF_DISPLAY) {
+    if (a >= END_OF_DISPLAY) {
       shift_screen();
       a -= 80;
     }
@@ -67,7 +60,7 @@ void print_char(char symbol){
 }
 
 void print_char_designed(char symbol, short color, int x, int y){
-    short* a = (short*)(START_OF_DISPLAY) + y*80 + x;
+    short* a = START_OF_DISPLAY + y*80 + x;
     short printed_char = (color << 8) + symbol;
     *a = printed_char;
     
@@ -76,7 +69,7 @@ void print_char_designed(char symbol, short color, int x, int y){
 void print_string(char* string, short color, short** start){
   short* a = *start;
   while (*string != '\0'){
-    if (a >= (short*)END_OF_DISPLAY){
+    if (a >= END_OF_DISPLAY){
       shift_screen();
       a -= 80;
     }
@@ -88,13 +81,30 @@ void print_string(char* string, short color, short** start){
   } 
   *start = a;
 }
-void enter(){
-  careet_ptr = (short*)START_OF_DISPLAY + ((careet_ptr - (short*)START_OF_DISPLAY) / 80 + 1) * 80;
+void new_line(){
+  careet_ptr = START_OF_DISPLAY + ((careet_ptr - START_OF_DISPLAY) / 80 + 1) * 80;
+}
+
+void memcpy(void *dest, const void *src, size_t size)
+{
+  char* dest_char = (char*)dest;
+  char* src_char = (char*)src;
+  for (char* ptr = src_char; ptr < src_char + size; ++ptr){
+    *(dest_char++) = *(char*)ptr;
+  }
+}
+
+void memset(void *dest, char ch, size_t count)
+{
+  char* dest_char = (char*)dest;
+  for (char* ptr = dest_char; ptr < dest_char + count; ++ptr){
+    *ptr = ch;
+  }
 }
 
 void println(char* str) {
   print(str);
-  enter();
+  new_line();
 }
 
 void print(char* str) {
@@ -102,22 +112,24 @@ void print(char* str) {
 }
 
 void vga_clear_screen(){
-  short* a = (short*)START_OF_DISPLAY;
-  while (a < (short*)END_OF_DISPLAY){
-    *a = 0;
-    a++;
-  }   
+  // while (a < END_OF_DISPLAY){ // TODO: do like memcpy and memzero
+  //   *a = 0;
+  //   a++;
+  // }   
+  memset(START_OF_DISPLAY, 0, 80 * 25 * 2);
 }
 
 void shift_screen(){
-  short* a = (short*)START_OF_DISPLAY;
-  while (a < (short*)(END_OF_DISPLAY - 80)){
-    *a = *(a + 80);
-    a++;
-  }
-  for(short* b = (short*)(END_OF_DISPLAY) - 80; b < (short*)(END_OF_DISPLAY); b++){
-    *b = 0;
-  }
+  // while (a < (END_OF_DISPLAY - 80)){
+  //   *a = *(a + 80);
+  //   a++;
+  // }
+  memcpy(START_OF_DISPLAY, START_OF_DISPLAY + 80, 80 * 24 * 2);
+  // for(short* b = END_OF_DISPLAY - 80; b < END_OF_DISPLAY; ++b){
+  //   *b = 0;
+  // }
+  
+  memset(END_OF_DISPLAY - 80, 0, 80 * 2);
 }
 
 void print_format(char* str, ...) {
@@ -131,7 +143,7 @@ void print_format(char* str, ...) {
 			break;
 		}
     if (c == '\n') {
-      enter();
+      new_line();
     } else if (c == '%') {
 			flag = 1;
 		} else if (flag) {
