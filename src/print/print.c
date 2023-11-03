@@ -29,7 +29,7 @@ void print_num(int num, int base){
 
   int j = 0;
   char tmp[10];
-  do{ // TODO: use do while cycle
+  do{
     int digit = num % base;
     if (digit < 10){
       tmp[j] = (char)(digit + '0');
@@ -112,23 +112,11 @@ void print(char* str) {
 }
 
 void vga_clear_screen(){
-  // while (a < END_OF_DISPLAY){ // TODO: do like memcpy and memzero
-  //   *a = 0;
-  //   a++;
-  // }   
   memset(START_OF_DISPLAY, 0, 80 * 25 * 2);
 }
 
 void shift_screen(){
-  // while (a < (END_OF_DISPLAY - 80)){
-  //   *a = *(a + 80);
-  //   a++;
-  // }
   memcpy(START_OF_DISPLAY, START_OF_DISPLAY + 80, 80 * 24 * 2);
-  // for(short* b = END_OF_DISPLAY - 80; b < END_OF_DISPLAY; ++b){
-  //   *b = 0;
-  // }
-  
   memset(END_OF_DISPLAY - 80, 0, 80 * 2);
 }
 
