@@ -1,5 +1,7 @@
 
 #include "print/print.h"
+#include "idt/idt.h"
+#include "alloc/alloc.h"
 
 char* logo[] = {
   " .-----------. .--------------. .-----------. .--------------. .--------------.",
@@ -24,18 +26,21 @@ char* logo[] = {
 };
 
 void kernel_entry() {
+  init_alloc();
   vga_clear_screen(); 
-  for (int i = 0; i < sizeof(logo) / sizeof(logo[0]); i++) {
-    println(logo[i]);
-  }
-  println("BrickOS");
-  println("Version 1.0");
-  println("Copyright (C) 2023");
+  // for (int i = 0; i < sizeof(logo) / sizeof(logo[0]); i++) {
+  //   println(logo[i]);
+  // }
+  // println("BrickOS");
+  // println("Version 1.0");
+  // println("Copyright (C) 2023");
 
-  for (int i = 0; i < 10; ++i) {
-    print_format("%s %x: %x\n", "the number is", i, i*i-1);
-  }
   // print_num(15, 16);
-
+  println("Start init idt");
+  init_idt();
+  println("End init idt");
+  // int a = 2*2-4;
+  // int b = 1/a;
+  // print_format("%d\n", b);
   for (;;);
 }

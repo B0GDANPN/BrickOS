@@ -1,4 +1,12 @@
 #include "utils.h"
+#include "../print/print.h"
+
+void null_check(void* ptr) {
+	if (ptr == NULL) {
+		println("Out of memory!");
+      for(;;);
+	}
+}
 
 void memcpy(void *dest, const void *src, size_t size)
 {

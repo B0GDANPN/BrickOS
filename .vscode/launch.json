@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/volkov/Documents/GitHub/BrickOS/src/print",
-      "program": "c:/Users/volkov/Documents/GitHub/BrickOS/src/print/build/Debug/outDebug",
+      "cwd": "c:/Users/volkov/Documents/GitHub/BrickOS/src/idt",
+      "program": "c:/Users/volkov/Documents/GitHub/BrickOS/src/idt/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
