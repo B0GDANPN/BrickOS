@@ -34,7 +34,7 @@ void print_num(int num, int base){
     if (digit < 10){
       tmp[j] = (char)(digit + '0');
     } else {
-      tmp[j] = (char)(digit - 10 + 'a');
+      tmp[j] = (char)(digit - 10 + 'A');
     }
 
     num /= base;
