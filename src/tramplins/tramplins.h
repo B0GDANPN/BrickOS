@@ -2,7 +2,7 @@
 
 typedef void (*TRAMPLIN)(void);
 
-// void init_tramplins_array(TRAMPLIN* tramplins);
+void init_tramplins_array(unsigned int tramplins[]);
 
 void tramplin_0();
 void tramplin_1();
