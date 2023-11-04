@@ -1,5 +1,5 @@
 #include "idt.h"
-#include "tramplines.h"
+#include "../tramplins/tramplins.h"
 #include "../alloc/alloc.h"
 #include "../print/print.h"
 
@@ -18,12 +18,19 @@ void handler(unsigned char vector) {
 void init_idt() {
     Gate_Desc* idt = kernel_malloc(IDT_SIZE * sizeof(Gate_Desc));
     null_check(idt);
+
+    // TRAMPLIN* tramplins = kernel_malloc(IDT_SIZE * sizeof(TRAMPLIN));
+    // null_check(tramplins);
+    // init_tramplins_array(tramplins);
+
     for (int vector = 0; vector < IDT_SIZE; vector++) {
 
-        void* handler = tramplin_0;
-        print_format("%d: %x\n", vector, (u32)handler);
-        u16 low_16_bits = (u16)(((u32)handler << 16) >> 16); //gets the low 16 bits of hadler
-        u16 high_16_bits = (u16)(((u32)handler) >> 16);      //gets the high 16 bits of hadler
+        // TRAMPLIN tramplin_i = tramplins[vector];
+        TRAMPLIN tramplin_i = tramplin_0;
+        // print_format("%d: %x\n", vector, (u32)tramplins[vector]);
+        print_format("%d: %x\n", vector, (u32)tramplin_i);
+        u16 low_16_bits = (u16)(((u32)tramplin_i << 16) >> 16); //gets the low 16 bits of hadler
+        u16 high_16_bits = (u16)(((u32)tramplin_i) >> 16);      //gets the high 16 bits of hadler
 
         u16 segment_selector;
         asm(
@@ -53,5 +60,5 @@ void init_idt() {
 
 void enable_interrupt(IDT_Desc* idt_desc) {
      asm ( "lidt %0" : : "m"(*idt_desc) );
-     asm ( "sti" : : "m"(idt_desc) );
+     asm ( "sti" : :);
 }

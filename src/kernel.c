@@ -36,9 +36,9 @@ void kernel_entry() {
   // println("Copyright (C) 2023");
 
   // print_num(15, 16);
-  println("Start init idt");
+  // println("Start init idt");
   init_idt();
-  println("End init idt");
+  // println("End init idt");
   // int a = 2*2-4;
   // int b = 1/a;
   // print_format("%d\n", b);

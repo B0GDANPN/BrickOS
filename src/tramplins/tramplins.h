@@ -1,5 +1,9 @@
 #pragma once
 
+typedef void (*TRAMPLIN)(void);
+
+// void init_tramplins_array(TRAMPLIN* tramplins);
+
 void tramplin_0();
 void tramplin_1();
 void tramplin_2();
@@ -256,3 +260,5 @@ void tramplin_252();
 void tramplin_253();
 void tramplin_254();
 void tramplin_255();
+
+// мда
