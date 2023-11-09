@@ -15,13 +15,13 @@ void init_idt() {
     Gate_Desc* idt = kernel_malloc(IDT_SIZE * sizeof(Gate_Desc));
     null_check(idt);
 
-    u32 tramplins[256];
+    u32 tramplins[IDT_SIZE];
     init_tramplins_array(tramplins);
 
     for (int vector = 0; vector < IDT_SIZE; ++vector) {
         u32 tramplin_i = tramplins[vector];
-        u16 low_16_bits = tramplin_i & 0xFFFF; //gets the low 16 bits of hadler
-        u16 high_16_bits = tramplin_i >> 16;   //gets the high 16 bits of hadler
+        u16 low_16_bits = tramplin_i & 0xFFFF; // gets the low 16 bits of hadler
+        u16 high_16_bits = tramplin_i >> 16;   // gets the high 16 bits of hadler
 
         u16 segment_selector;
         asm(
