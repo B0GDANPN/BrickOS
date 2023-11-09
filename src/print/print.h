@@ -1,6 +1,6 @@
 #pragma once
 
-typedef unsigned int size_t;
+#include "../utils/utils.h"
 
 void vga_clear_screen();
 
@@ -12,7 +12,11 @@ void print_string(char *string, short color, short **start);
 
 void print(char *str);
 
-void print_num(int n, int base);
+void print_dec(int n);
+
+void print_hex(unsigned int num);
+
+void vprint_format(char *str, va_list);
 
 void print_format(char *str, ...);
 

@@ -24,3 +24,17 @@ void memset(void *dest, char ch, size_t count)
     *ptr = ch;
   }
 }
+
+void vkernel_panic(char* str, va_list args) {
+  asm ( "cli" : :);
+  vga_clear_screen();
+  vprint_format(str, args);
+  for(;;);
+}
+
+void kernel_panic(char* str, ...) {
+  va_list args;
+  va_start(args, str);
+  vkernel_panic(str, args);
+  va_end(args);
+}
