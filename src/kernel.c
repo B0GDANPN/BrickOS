@@ -10,8 +10,10 @@
 void kernel_entry() {
   init_alloc();
   vga_clear_screen(); 
-  print_logo();
-  //init_idt();
+  idt_init();
+  pic_init();
+
+  // print_logo();
   //print_format("%x\n%d\n", 0xFE987514, 789654123);
   //asm ( "sti" : :);
   //kernel_panic("%x\n%d\n", 0xFE987514, 789654123);
