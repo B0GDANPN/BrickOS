@@ -1,3 +1,5 @@
 #pragma once
 
-void pic_init();
+void init_pic();
+void mask_irq();
+void mask_timer();

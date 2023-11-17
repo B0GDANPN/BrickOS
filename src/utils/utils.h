@@ -32,3 +32,5 @@ void memset(void *dest, char ch, size_t count);
 void vkernel_panic(char* str, va_list args);
 
 void kernel_panic(char* str, ...);
+
+void send_eoi(int flag);
