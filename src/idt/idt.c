@@ -5,11 +5,6 @@
 
 #define IDT_SIZE 256
 
-void handler(unsigned short vector) {
-    print_format("PANIC!!! vector: %x\n", vector);
-
-    for(;;);
-}
 
 void init_idt() {
     Gate_Desc* idt = kernel_malloc(IDT_SIZE * sizeof(Gate_Desc));

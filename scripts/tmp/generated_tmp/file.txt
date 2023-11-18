@@ -1,256 +1,1014 @@
-	tramplins[0] = tramplin_0;
-	tramplins[1] = tramplin_1;
-	tramplins[2] = tramplin_2;
-	tramplins[3] = tramplin_3;
-	tramplins[4] = tramplin_4;
-	tramplins[5] = tramplin_5;
-	tramplins[6] = tramplin_6;
-	tramplins[7] = tramplin_7;
-	tramplins[8] = tramplin_8;
-	tramplins[9] = tramplin_9;
-	tramplins[10] = tramplin_10;
-	tramplins[11] = tramplin_11;
-	tramplins[12] = tramplin_12;
-	tramplins[13] = tramplin_13;
-	tramplins[14] = tramplin_14;
-	tramplins[15] = tramplin_15;
-	tramplins[16] = tramplin_16;
-	tramplins[17] = tramplin_17;
-	tramplins[18] = tramplin_18;
-	tramplins[19] = tramplin_19;
-	tramplins[20] = tramplin_20;
-	tramplins[21] = tramplin_21;
-	tramplins[22] = tramplin_22;
-	tramplins[23] = tramplin_23;
-	tramplins[24] = tramplin_24;
-	tramplins[25] = tramplin_25;
-	tramplins[26] = tramplin_26;
-	tramplins[27] = tramplin_27;
-	tramplins[28] = tramplin_28;
-	tramplins[29] = tramplin_29;
-	tramplins[30] = tramplin_30;
-	tramplins[31] = tramplin_31;
-	tramplins[32] = tramplin_32;
-	tramplins[33] = tramplin_33;
-	tramplins[34] = tramplin_34;
-	tramplins[35] = tramplin_35;
-	tramplins[36] = tramplin_36;
-	tramplins[37] = tramplin_37;
-	tramplins[38] = tramplin_38;
-	tramplins[39] = tramplin_39;
-	tramplins[40] = tramplin_40;
-	tramplins[41] = tramplin_41;
-	tramplins[42] = tramplin_42;
-	tramplins[43] = tramplin_43;
-	tramplins[44] = tramplin_44;
-	tramplins[45] = tramplin_45;
-	tramplins[46] = tramplin_46;
-	tramplins[47] = tramplin_47;
-	tramplins[48] = tramplin_48;
-	tramplins[49] = tramplin_49;
-	tramplins[50] = tramplin_50;
-	tramplins[51] = tramplin_51;
-	tramplins[52] = tramplin_52;
-	tramplins[53] = tramplin_53;
-	tramplins[54] = tramplin_54;
-	tramplins[55] = tramplin_55;
-	tramplins[56] = tramplin_56;
-	tramplins[57] = tramplin_57;
-	tramplins[58] = tramplin_58;
-	tramplins[59] = tramplin_59;
-	tramplins[60] = tramplin_60;
-	tramplins[61] = tramplin_61;
-	tramplins[62] = tramplin_62;
-	tramplins[63] = tramplin_63;
-	tramplins[64] = tramplin_64;
-	tramplins[65] = tramplin_65;
-	tramplins[66] = tramplin_66;
-	tramplins[67] = tramplin_67;
-	tramplins[68] = tramplin_68;
-	tramplins[69] = tramplin_69;
-	tramplins[70] = tramplin_70;
-	tramplins[71] = tramplin_71;
-	tramplins[72] = tramplin_72;
-	tramplins[73] = tramplin_73;
-	tramplins[74] = tramplin_74;
-	tramplins[75] = tramplin_75;
-	tramplins[76] = tramplin_76;
-	tramplins[77] = tramplin_77;
-	tramplins[78] = tramplin_78;
-	tramplins[79] = tramplin_79;
-	tramplins[80] = tramplin_80;
-	tramplins[81] = tramplin_81;
-	tramplins[82] = tramplin_82;
-	tramplins[83] = tramplin_83;
-	tramplins[84] = tramplin_84;
-	tramplins[85] = tramplin_85;
-	tramplins[86] = tramplin_86;
-	tramplins[87] = tramplin_87;
-	tramplins[88] = tramplin_88;
-	tramplins[89] = tramplin_89;
-	tramplins[90] = tramplin_90;
-	tramplins[91] = tramplin_91;
-	tramplins[92] = tramplin_92;
-	tramplins[93] = tramplin_93;
-	tramplins[94] = tramplin_94;
-	tramplins[95] = tramplin_95;
-	tramplins[96] = tramplin_96;
-	tramplins[97] = tramplin_97;
-	tramplins[98] = tramplin_98;
-	tramplins[99] = tramplin_99;
-	tramplins[100] = tramplin_100;
-	tramplins[101] = tramplin_101;
-	tramplins[102] = tramplin_102;
-	tramplins[103] = tramplin_103;
-	tramplins[104] = tramplin_104;
-	tramplins[105] = tramplin_105;
-	tramplins[106] = tramplin_106;
-	tramplins[107] = tramplin_107;
-	tramplins[108] = tramplin_108;
-	tramplins[109] = tramplin_109;
-	tramplins[110] = tramplin_110;
-	tramplins[111] = tramplin_111;
-	tramplins[112] = tramplin_112;
-	tramplins[113] = tramplin_113;
-	tramplins[114] = tramplin_114;
-	tramplins[115] = tramplin_115;
-	tramplins[116] = tramplin_116;
-	tramplins[117] = tramplin_117;
-	tramplins[118] = tramplin_118;
-	tramplins[119] = tramplin_119;
-	tramplins[120] = tramplin_120;
-	tramplins[121] = tramplin_121;
-	tramplins[122] = tramplin_122;
-	tramplins[123] = tramplin_123;
-	tramplins[124] = tramplin_124;
-	tramplins[125] = tramplin_125;
-	tramplins[126] = tramplin_126;
-	tramplins[127] = tramplin_127;
-	tramplins[128] = tramplin_128;
-	tramplins[129] = tramplin_129;
-	tramplins[130] = tramplin_130;
-	tramplins[131] = tramplin_131;
-	tramplins[132] = tramplin_132;
-	tramplins[133] = tramplin_133;
-	tramplins[134] = tramplin_134;
-	tramplins[135] = tramplin_135;
-	tramplins[136] = tramplin_136;
-	tramplins[137] = tramplin_137;
-	tramplins[138] = tramplin_138;
-	tramplins[139] = tramplin_139;
-	tramplins[140] = tramplin_140;
-	tramplins[141] = tramplin_141;
-	tramplins[142] = tramplin_142;
-	tramplins[143] = tramplin_143;
-	tramplins[144] = tramplin_144;
-	tramplins[145] = tramplin_145;
-	tramplins[146] = tramplin_146;
-	tramplins[147] = tramplin_147;
-	tramplins[148] = tramplin_148;
-	tramplins[149] = tramplin_149;
-	tramplins[150] = tramplin_150;
-	tramplins[151] = tramplin_151;
-	tramplins[152] = tramplin_152;
-	tramplins[153] = tramplin_153;
-	tramplins[154] = tramplin_154;
-	tramplins[155] = tramplin_155;
-	tramplins[156] = tramplin_156;
-	tramplins[157] = tramplin_157;
-	tramplins[158] = tramplin_158;
-	tramplins[159] = tramplin_159;
-	tramplins[160] = tramplin_160;
-	tramplins[161] = tramplin_161;
-	tramplins[162] = tramplin_162;
-	tramplins[163] = tramplin_163;
-	tramplins[164] = tramplin_164;
-	tramplins[165] = tramplin_165;
-	tramplins[166] = tramplin_166;
-	tramplins[167] = tramplin_167;
-	tramplins[168] = tramplin_168;
-	tramplins[169] = tramplin_169;
-	tramplins[170] = tramplin_170;
-	tramplins[171] = tramplin_171;
-	tramplins[172] = tramplin_172;
-	tramplins[173] = tramplin_173;
-	tramplins[174] = tramplin_174;
-	tramplins[175] = tramplin_175;
-	tramplins[176] = tramplin_176;
-	tramplins[177] = tramplin_177;
-	tramplins[178] = tramplin_178;
-	tramplins[179] = tramplin_179;
-	tramplins[180] = tramplin_180;
-	tramplins[181] = tramplin_181;
-	tramplins[182] = tramplin_182;
-	tramplins[183] = tramplin_183;
-	tramplins[184] = tramplin_184;
-	tramplins[185] = tramplin_185;
-	tramplins[186] = tramplin_186;
-	tramplins[187] = tramplin_187;
-	tramplins[188] = tramplin_188;
-	tramplins[189] = tramplin_189;
-	tramplins[190] = tramplin_190;
-	tramplins[191] = tramplin_191;
-	tramplins[192] = tramplin_192;
-	tramplins[193] = tramplin_193;
-	tramplins[194] = tramplin_194;
-	tramplins[195] = tramplin_195;
-	tramplins[196] = tramplin_196;
-	tramplins[197] = tramplin_197;
-	tramplins[198] = tramplin_198;
-	tramplins[199] = tramplin_199;
-	tramplins[200] = tramplin_200;
-	tramplins[201] = tramplin_201;
-	tramplins[202] = tramplin_202;
-	tramplins[203] = tramplin_203;
-	tramplins[204] = tramplin_204;
-	tramplins[205] = tramplin_205;
-	tramplins[206] = tramplin_206;
-	tramplins[207] = tramplin_207;
-	tramplins[208] = tramplin_208;
-	tramplins[209] = tramplin_209;
-	tramplins[210] = tramplin_210;
-	tramplins[211] = tramplin_211;
-	tramplins[212] = tramplin_212;
-	tramplins[213] = tramplin_213;
-	tramplins[214] = tramplin_214;
-	tramplins[215] = tramplin_215;
-	tramplins[216] = tramplin_216;
-	tramplins[217] = tramplin_217;
-	tramplins[218] = tramplin_218;
-	tramplins[219] = tramplin_219;
-	tramplins[220] = tramplin_220;
-	tramplins[221] = tramplin_221;
-	tramplins[222] = tramplin_222;
-	tramplins[223] = tramplin_223;
-	tramplins[224] = tramplin_224;
-	tramplins[225] = tramplin_225;
-	tramplins[226] = tramplin_226;
-	tramplins[227] = tramplin_227;
-	tramplins[228] = tramplin_228;
-	tramplins[229] = tramplin_229;
-	tramplins[230] = tramplin_230;
-	tramplins[231] = tramplin_231;
-	tramplins[232] = tramplin_232;
-	tramplins[233] = tramplin_233;
-	tramplins[234] = tramplin_234;
-	tramplins[235] = tramplin_235;
-	tramplins[236] = tramplin_236;
-	tramplins[237] = tramplin_237;
-	tramplins[238] = tramplin_238;
-	tramplins[239] = tramplin_239;
-	tramplins[240] = tramplin_240;
-	tramplins[241] = tramplin_241;
-	tramplins[242] = tramplin_242;
-	tramplins[243] = tramplin_243;
-	tramplins[244] = tramplin_244;
-	tramplins[245] = tramplin_245;
-	tramplins[246] = tramplin_246;
-	tramplins[247] = tramplin_247;
-	tramplins[248] = tramplin_248;
-	tramplins[249] = tramplin_249;
-	tramplins[250] = tramplin_250;
-	tramplins[251] = tramplin_251;
-	tramplins[252] = tramplin_252;
-	tramplins[253] = tramplin_253;
-	tramplins[254] = tramplin_254;
-	tramplins[255] = tramplin_255;
+_tramplin_0:
+	push 0xDEADC0DE
+	push 0
+	jmp make_context
+_tramplin_1:
+	push 0xDEADC0DE
+	push 1
+	jmp make_context
+_tramplin_2:
+	push 0xDEADC0DE
+	push 2
+	jmp make_context
+_tramplin_3:
+	push 0xDEADC0DE
+	push 3
+	jmp make_context
+_tramplin_4:
+	push 0xDEADC0DE
+	push 4
+	jmp make_context
+_tramplin_5:
+	push 0xDEADC0DE
+	push 5
+	jmp make_context
+_tramplin_6:
+	push 0xDEADC0DE
+	push 6
+	jmp make_context
+_tramplin_7:
+	push 0xDEADC0DE
+	push 7
+	jmp make_context
+_tramplin_8:
+	push 8
+	jmp make_context
+_tramplin_9:
+	push 0xDEADC0DE
+	push 9
+	jmp make_context
+_tramplin_10:
+	push 10
+	jmp make_context
+_tramplin_11:
+	push 11
+	jmp make_context
+_tramplin_12:
+	push 12
+	jmp make_context
+_tramplin_13:
+	push 13
+	jmp make_context
+_tramplin_14:
+	push 14
+	jmp make_context
+_tramplin_15:
+	push 0xDEADC0DE
+	push 15
+	jmp make_context
+_tramplin_16:
+	push 0xDEADC0DE
+	push 16
+	jmp make_context
+_tramplin_17:
+	push 17
+	jmp make_context
+_tramplin_18:
+	push 0xDEADC0DE
+	push 18
+	jmp make_context
+_tramplin_19:
+	push 0xDEADC0DE
+	push 19
+	jmp make_context
+_tramplin_20:
+	push 0xDEADC0DE
+	push 20
+	jmp make_context
+_tramplin_21:
+	push 21
+	jmp make_context
+_tramplin_22:
+	push 0xDEADC0DE
+	push 22
+	jmp make_context
+_tramplin_23:
+	push 0xDEADC0DE
+	push 23
+	jmp make_context
+_tramplin_24:
+	push 0xDEADC0DE
+	push 24
+	jmp make_context
+_tramplin_25:
+	push 0xDEADC0DE
+	push 25
+	jmp make_context
+_tramplin_26:
+	push 0xDEADC0DE
+	push 26
+	jmp make_context
+_tramplin_27:
+	push 0xDEADC0DE
+	push 27
+	jmp make_context
+_tramplin_28:
+	push 0xDEADC0DE
+	push 28
+	jmp make_context
+_tramplin_29:
+	push 29
+	jmp make_context
+_tramplin_30:
+	push 30
+	jmp make_context
+_tramplin_31:
+	push 0xDEADC0DE
+	push 31
+	jmp make_context
+_tramplin_32:
+	push 0xDEADC0DE
+	push 32
+	jmp make_context
+_tramplin_33:
+	push 0xDEADC0DE
+	push 33
+	jmp make_context
+_tramplin_34:
+	push 0xDEADC0DE
+	push 34
+	jmp make_context
+_tramplin_35:
+	push 0xDEADC0DE
+	push 35
+	jmp make_context
+_tramplin_36:
+	push 0xDEADC0DE
+	push 36
+	jmp make_context
+_tramplin_37:
+	push 0xDEADC0DE
+	push 37
+	jmp make_context
+_tramplin_38:
+	push 0xDEADC0DE
+	push 38
+	jmp make_context
+_tramplin_39:
+	push 0xDEADC0DE
+	push 39
+	jmp make_context
+_tramplin_40:
+	push 0xDEADC0DE
+	push 40
+	jmp make_context
+_tramplin_41:
+	push 0xDEADC0DE
+	push 41
+	jmp make_context
+_tramplin_42:
+	push 0xDEADC0DE
+	push 42
+	jmp make_context
+_tramplin_43:
+	push 0xDEADC0DE
+	push 43
+	jmp make_context
+_tramplin_44:
+	push 0xDEADC0DE
+	push 44
+	jmp make_context
+_tramplin_45:
+	push 0xDEADC0DE
+	push 45
+	jmp make_context
+_tramplin_46:
+	push 0xDEADC0DE
+	push 46
+	jmp make_context
+_tramplin_47:
+	push 0xDEADC0DE
+	push 47
+	jmp make_context
+_tramplin_48:
+	push 0xDEADC0DE
+	push 48
+	jmp make_context
+_tramplin_49:
+	push 0xDEADC0DE
+	push 49
+	jmp make_context
+_tramplin_50:
+	push 0xDEADC0DE
+	push 50
+	jmp make_context
+_tramplin_51:
+	push 0xDEADC0DE
+	push 51
+	jmp make_context
+_tramplin_52:
+	push 0xDEADC0DE
+	push 52
+	jmp make_context
+_tramplin_53:
+	push 0xDEADC0DE
+	push 53
+	jmp make_context
+_tramplin_54:
+	push 0xDEADC0DE
+	push 54
+	jmp make_context
+_tramplin_55:
+	push 0xDEADC0DE
+	push 55
+	jmp make_context
+_tramplin_56:
+	push 0xDEADC0DE
+	push 56
+	jmp make_context
+_tramplin_57:
+	push 0xDEADC0DE
+	push 57
+	jmp make_context
+_tramplin_58:
+	push 0xDEADC0DE
+	push 58
+	jmp make_context
+_tramplin_59:
+	push 0xDEADC0DE
+	push 59
+	jmp make_context
+_tramplin_60:
+	push 0xDEADC0DE
+	push 60
+	jmp make_context
+_tramplin_61:
+	push 0xDEADC0DE
+	push 61
+	jmp make_context
+_tramplin_62:
+	push 0xDEADC0DE
+	push 62
+	jmp make_context
+_tramplin_63:
+	push 0xDEADC0DE
+	push 63
+	jmp make_context
+_tramplin_64:
+	push 0xDEADC0DE
+	push 64
+	jmp make_context
+_tramplin_65:
+	push 0xDEADC0DE
+	push 65
+	jmp make_context
+_tramplin_66:
+	push 0xDEADC0DE
+	push 66
+	jmp make_context
+_tramplin_67:
+	push 0xDEADC0DE
+	push 67
+	jmp make_context
+_tramplin_68:
+	push 0xDEADC0DE
+	push 68
+	jmp make_context
+_tramplin_69:
+	push 0xDEADC0DE
+	push 69
+	jmp make_context
+_tramplin_70:
+	push 0xDEADC0DE
+	push 70
+	jmp make_context
+_tramplin_71:
+	push 0xDEADC0DE
+	push 71
+	jmp make_context
+_tramplin_72:
+	push 0xDEADC0DE
+	push 72
+	jmp make_context
+_tramplin_73:
+	push 0xDEADC0DE
+	push 73
+	jmp make_context
+_tramplin_74:
+	push 0xDEADC0DE
+	push 74
+	jmp make_context
+_tramplin_75:
+	push 0xDEADC0DE
+	push 75
+	jmp make_context
+_tramplin_76:
+	push 0xDEADC0DE
+	push 76
+	jmp make_context
+_tramplin_77:
+	push 0xDEADC0DE
+	push 77
+	jmp make_context
+_tramplin_78:
+	push 0xDEADC0DE
+	push 78
+	jmp make_context
+_tramplin_79:
+	push 0xDEADC0DE
+	push 79
+	jmp make_context
+_tramplin_80:
+	push 0xDEADC0DE
+	push 80
+	jmp make_context
+_tramplin_81:
+	push 0xDEADC0DE
+	push 81
+	jmp make_context
+_tramplin_82:
+	push 0xDEADC0DE
+	push 82
+	jmp make_context
+_tramplin_83:
+	push 0xDEADC0DE
+	push 83
+	jmp make_context
+_tramplin_84:
+	push 0xDEADC0DE
+	push 84
+	jmp make_context
+_tramplin_85:
+	push 0xDEADC0DE
+	push 85
+	jmp make_context
+_tramplin_86:
+	push 0xDEADC0DE
+	push 86
+	jmp make_context
+_tramplin_87:
+	push 0xDEADC0DE
+	push 87
+	jmp make_context
+_tramplin_88:
+	push 0xDEADC0DE
+	push 88
+	jmp make_context
+_tramplin_89:
+	push 0xDEADC0DE
+	push 89
+	jmp make_context
+_tramplin_90:
+	push 0xDEADC0DE
+	push 90
+	jmp make_context
+_tramplin_91:
+	push 0xDEADC0DE
+	push 91
+	jmp make_context
+_tramplin_92:
+	push 0xDEADC0DE
+	push 92
+	jmp make_context
+_tramplin_93:
+	push 0xDEADC0DE
+	push 93
+	jmp make_context
+_tramplin_94:
+	push 0xDEADC0DE
+	push 94
+	jmp make_context
+_tramplin_95:
+	push 0xDEADC0DE
+	push 95
+	jmp make_context
+_tramplin_96:
+	push 0xDEADC0DE
+	push 96
+	jmp make_context
+_tramplin_97:
+	push 0xDEADC0DE
+	push 97
+	jmp make_context
+_tramplin_98:
+	push 0xDEADC0DE
+	push 98
+	jmp make_context
+_tramplin_99:
+	push 0xDEADC0DE
+	push 99
+	jmp make_context
+_tramplin_100:
+	push 0xDEADC0DE
+	push 100
+	jmp make_context
+_tramplin_101:
+	push 0xDEADC0DE
+	push 101
+	jmp make_context
+_tramplin_102:
+	push 0xDEADC0DE
+	push 102
+	jmp make_context
+_tramplin_103:
+	push 0xDEADC0DE
+	push 103
+	jmp make_context
+_tramplin_104:
+	push 0xDEADC0DE
+	push 104
+	jmp make_context
+_tramplin_105:
+	push 0xDEADC0DE
+	push 105
+	jmp make_context
+_tramplin_106:
+	push 0xDEADC0DE
+	push 106
+	jmp make_context
+_tramplin_107:
+	push 0xDEADC0DE
+	push 107
+	jmp make_context
+_tramplin_108:
+	push 0xDEADC0DE
+	push 108
+	jmp make_context
+_tramplin_109:
+	push 0xDEADC0DE
+	push 109
+	jmp make_context
+_tramplin_110:
+	push 0xDEADC0DE
+	push 110
+	jmp make_context
+_tramplin_111:
+	push 0xDEADC0DE
+	push 111
+	jmp make_context
+_tramplin_112:
+	push 0xDEADC0DE
+	push 112
+	jmp make_context
+_tramplin_113:
+	push 0xDEADC0DE
+	push 113
+	jmp make_context
+_tramplin_114:
+	push 0xDEADC0DE
+	push 114
+	jmp make_context
+_tramplin_115:
+	push 0xDEADC0DE
+	push 115
+	jmp make_context
+_tramplin_116:
+	push 0xDEADC0DE
+	push 116
+	jmp make_context
+_tramplin_117:
+	push 0xDEADC0DE
+	push 117
+	jmp make_context
+_tramplin_118:
+	push 0xDEADC0DE
+	push 118
+	jmp make_context
+_tramplin_119:
+	push 0xDEADC0DE
+	push 119
+	jmp make_context
+_tramplin_120:
+	push 0xDEADC0DE
+	push 120
+	jmp make_context
+_tramplin_121:
+	push 0xDEADC0DE
+	push 121
+	jmp make_context
+_tramplin_122:
+	push 0xDEADC0DE
+	push 122
+	jmp make_context
+_tramplin_123:
+	push 0xDEADC0DE
+	push 123
+	jmp make_context
+_tramplin_124:
+	push 0xDEADC0DE
+	push 124
+	jmp make_context
+_tramplin_125:
+	push 0xDEADC0DE
+	push 125
+	jmp make_context
+_tramplin_126:
+	push 0xDEADC0DE
+	push 126
+	jmp make_context
+_tramplin_127:
+	push 0xDEADC0DE
+	push 127
+	jmp make_context
+_tramplin_128:
+	push 0xDEADC0DE
+	push 128
+	jmp make_context
+_tramplin_129:
+	push 0xDEADC0DE
+	push 129
+	jmp make_context
+_tramplin_130:
+	push 0xDEADC0DE
+	push 130
+	jmp make_context
+_tramplin_131:
+	push 0xDEADC0DE
+	push 131
+	jmp make_context
+_tramplin_132:
+	push 0xDEADC0DE
+	push 132
+	jmp make_context
+_tramplin_133:
+	push 0xDEADC0DE
+	push 133
+	jmp make_context
+_tramplin_134:
+	push 0xDEADC0DE
+	push 134
+	jmp make_context
+_tramplin_135:
+	push 0xDEADC0DE
+	push 135
+	jmp make_context
+_tramplin_136:
+	push 0xDEADC0DE
+	push 136
+	jmp make_context
+_tramplin_137:
+	push 0xDEADC0DE
+	push 137
+	jmp make_context
+_tramplin_138:
+	push 0xDEADC0DE
+	push 138
+	jmp make_context
+_tramplin_139:
+	push 0xDEADC0DE
+	push 139
+	jmp make_context
+_tramplin_140:
+	push 0xDEADC0DE
+	push 140
+	jmp make_context
+_tramplin_141:
+	push 0xDEADC0DE
+	push 141
+	jmp make_context
+_tramplin_142:
+	push 0xDEADC0DE
+	push 142
+	jmp make_context
+_tramplin_143:
+	push 0xDEADC0DE
+	push 143
+	jmp make_context
+_tramplin_144:
+	push 0xDEADC0DE
+	push 144
+	jmp make_context
+_tramplin_145:
+	push 0xDEADC0DE
+	push 145
+	jmp make_context
+_tramplin_146:
+	push 0xDEADC0DE
+	push 146
+	jmp make_context
+_tramplin_147:
+	push 0xDEADC0DE
+	push 147
+	jmp make_context
+_tramplin_148:
+	push 0xDEADC0DE
+	push 148
+	jmp make_context
+_tramplin_149:
+	push 0xDEADC0DE
+	push 149
+	jmp make_context
+_tramplin_150:
+	push 0xDEADC0DE
+	push 150
+	jmp make_context
+_tramplin_151:
+	push 0xDEADC0DE
+	push 151
+	jmp make_context
+_tramplin_152:
+	push 0xDEADC0DE
+	push 152
+	jmp make_context
+_tramplin_153:
+	push 0xDEADC0DE
+	push 153
+	jmp make_context
+_tramplin_154:
+	push 0xDEADC0DE
+	push 154
+	jmp make_context
+_tramplin_155:
+	push 0xDEADC0DE
+	push 155
+	jmp make_context
+_tramplin_156:
+	push 0xDEADC0DE
+	push 156
+	jmp make_context
+_tramplin_157:
+	push 0xDEADC0DE
+	push 157
+	jmp make_context
+_tramplin_158:
+	push 0xDEADC0DE
+	push 158
+	jmp make_context
+_tramplin_159:
+	push 0xDEADC0DE
+	push 159
+	jmp make_context
+_tramplin_160:
+	push 0xDEADC0DE
+	push 160
+	jmp make_context
+_tramplin_161:
+	push 0xDEADC0DE
+	push 161
+	jmp make_context
+_tramplin_162:
+	push 0xDEADC0DE
+	push 162
+	jmp make_context
+_tramplin_163:
+	push 0xDEADC0DE
+	push 163
+	jmp make_context
+_tramplin_164:
+	push 0xDEADC0DE
+	push 164
+	jmp make_context
+_tramplin_165:
+	push 0xDEADC0DE
+	push 165
+	jmp make_context
+_tramplin_166:
+	push 0xDEADC0DE
+	push 166
+	jmp make_context
+_tramplin_167:
+	push 0xDEADC0DE
+	push 167
+	jmp make_context
+_tramplin_168:
+	push 0xDEADC0DE
+	push 168
+	jmp make_context
+_tramplin_169:
+	push 0xDEADC0DE
+	push 169
+	jmp make_context
+_tramplin_170:
+	push 0xDEADC0DE
+	push 170
+	jmp make_context
+_tramplin_171:
+	push 0xDEADC0DE
+	push 171
+	jmp make_context
+_tramplin_172:
+	push 0xDEADC0DE
+	push 172
+	jmp make_context
+_tramplin_173:
+	push 0xDEADC0DE
+	push 173
+	jmp make_context
+_tramplin_174:
+	push 0xDEADC0DE
+	push 174
+	jmp make_context
+_tramplin_175:
+	push 0xDEADC0DE
+	push 175
+	jmp make_context
+_tramplin_176:
+	push 0xDEADC0DE
+	push 176
+	jmp make_context
+_tramplin_177:
+	push 0xDEADC0DE
+	push 177
+	jmp make_context
+_tramplin_178:
+	push 0xDEADC0DE
+	push 178
+	jmp make_context
+_tramplin_179:
+	push 0xDEADC0DE
+	push 179
+	jmp make_context
+_tramplin_180:
+	push 0xDEADC0DE
+	push 180
+	jmp make_context
+_tramplin_181:
+	push 0xDEADC0DE
+	push 181
+	jmp make_context
+_tramplin_182:
+	push 0xDEADC0DE
+	push 182
+	jmp make_context
+_tramplin_183:
+	push 0xDEADC0DE
+	push 183
+	jmp make_context
+_tramplin_184:
+	push 0xDEADC0DE
+	push 184
+	jmp make_context
+_tramplin_185:
+	push 0xDEADC0DE
+	push 185
+	jmp make_context
+_tramplin_186:
+	push 0xDEADC0DE
+	push 186
+	jmp make_context
+_tramplin_187:
+	push 0xDEADC0DE
+	push 187
+	jmp make_context
+_tramplin_188:
+	push 0xDEADC0DE
+	push 188
+	jmp make_context
+_tramplin_189:
+	push 0xDEADC0DE
+	push 189
+	jmp make_context
+_tramplin_190:
+	push 0xDEADC0DE
+	push 190
+	jmp make_context
+_tramplin_191:
+	push 0xDEADC0DE
+	push 191
+	jmp make_context
+_tramplin_192:
+	push 0xDEADC0DE
+	push 192
+	jmp make_context
+_tramplin_193:
+	push 0xDEADC0DE
+	push 193
+	jmp make_context
+_tramplin_194:
+	push 0xDEADC0DE
+	push 194
+	jmp make_context
+_tramplin_195:
+	push 0xDEADC0DE
+	push 195
+	jmp make_context
+_tramplin_196:
+	push 0xDEADC0DE
+	push 196
+	jmp make_context
+_tramplin_197:
+	push 0xDEADC0DE
+	push 197
+	jmp make_context
+_tramplin_198:
+	push 0xDEADC0DE
+	push 198
+	jmp make_context
+_tramplin_199:
+	push 0xDEADC0DE
+	push 199
+	jmp make_context
+_tramplin_200:
+	push 0xDEADC0DE
+	push 200
+	jmp make_context
+_tramplin_201:
+	push 0xDEADC0DE
+	push 201
+	jmp make_context
+_tramplin_202:
+	push 0xDEADC0DE
+	push 202
+	jmp make_context
+_tramplin_203:
+	push 0xDEADC0DE
+	push 203
+	jmp make_context
+_tramplin_204:
+	push 0xDEADC0DE
+	push 204
+	jmp make_context
+_tramplin_205:
+	push 0xDEADC0DE
+	push 205
+	jmp make_context
+_tramplin_206:
+	push 0xDEADC0DE
+	push 206
+	jmp make_context
+_tramplin_207:
+	push 0xDEADC0DE
+	push 207
+	jmp make_context
+_tramplin_208:
+	push 0xDEADC0DE
+	push 208
+	jmp make_context
+_tramplin_209:
+	push 0xDEADC0DE
+	push 209
+	jmp make_context
+_tramplin_210:
+	push 0xDEADC0DE
+	push 210
+	jmp make_context
+_tramplin_211:
+	push 0xDEADC0DE
+	push 211
+	jmp make_context
+_tramplin_212:
+	push 0xDEADC0DE
+	push 212
+	jmp make_context
+_tramplin_213:
+	push 0xDEADC0DE
+	push 213
+	jmp make_context
+_tramplin_214:
+	push 0xDEADC0DE
+	push 214
+	jmp make_context
+_tramplin_215:
+	push 0xDEADC0DE
+	push 215
+	jmp make_context
+_tramplin_216:
+	push 0xDEADC0DE
+	push 216
+	jmp make_context
+_tramplin_217:
+	push 0xDEADC0DE
+	push 217
+	jmp make_context
+_tramplin_218:
+	push 0xDEADC0DE
+	push 218
+	jmp make_context
+_tramplin_219:
+	push 0xDEADC0DE
+	push 219
+	jmp make_context
+_tramplin_220:
+	push 0xDEADC0DE
+	push 220
+	jmp make_context
+_tramplin_221:
+	push 0xDEADC0DE
+	push 221
+	jmp make_context
+_tramplin_222:
+	push 0xDEADC0DE
+	push 222
+	jmp make_context
+_tramplin_223:
+	push 0xDEADC0DE
+	push 223
+	jmp make_context
+_tramplin_224:
+	push 0xDEADC0DE
+	push 224
+	jmp make_context
+_tramplin_225:
+	push 0xDEADC0DE
+	push 225
+	jmp make_context
+_tramplin_226:
+	push 0xDEADC0DE
+	push 226
+	jmp make_context
+_tramplin_227:
+	push 0xDEADC0DE
+	push 227
+	jmp make_context
+_tramplin_228:
+	push 0xDEADC0DE
+	push 228
+	jmp make_context
+_tramplin_229:
+	push 0xDEADC0DE
+	push 229
+	jmp make_context
+_tramplin_230:
+	push 0xDEADC0DE
+	push 230
+	jmp make_context
+_tramplin_231:
+	push 0xDEADC0DE
+	push 231
+	jmp make_context
+_tramplin_232:
+	push 0xDEADC0DE
+	push 232
+	jmp make_context
+_tramplin_233:
+	push 0xDEADC0DE
+	push 233
+	jmp make_context
+_tramplin_234:
+	push 0xDEADC0DE
+	push 234
+	jmp make_context
+_tramplin_235:
+	push 0xDEADC0DE
+	push 235
+	jmp make_context
+_tramplin_236:
+	push 0xDEADC0DE
+	push 236
+	jmp make_context
+_tramplin_237:
+	push 0xDEADC0DE
+	push 237
+	jmp make_context
+_tramplin_238:
+	push 0xDEADC0DE
+	push 238
+	jmp make_context
+_tramplin_239:
+	push 0xDEADC0DE
+	push 239
+	jmp make_context
+_tramplin_240:
+	push 0xDEADC0DE
+	push 240
+	jmp make_context
+_tramplin_241:
+	push 0xDEADC0DE
+	push 241
+	jmp make_context
+_tramplin_242:
+	push 0xDEADC0DE
+	push 242
+	jmp make_context
+_tramplin_243:
+	push 0xDEADC0DE
+	push 243
+	jmp make_context
+_tramplin_244:
+	push 0xDEADC0DE
+	push 244
+	jmp make_context
+_tramplin_245:
+	push 0xDEADC0DE
+	push 245
+	jmp make_context
+_tramplin_246:
+	push 0xDEADC0DE
+	push 246
+	jmp make_context
+_tramplin_247:
+	push 0xDEADC0DE
+	push 247
+	jmp make_context
+_tramplin_248:
+	push 0xDEADC0DE
+	push 248
+	jmp make_context
+_tramplin_249:
+	push 0xDEADC0DE
+	push 249
+	jmp make_context
+_tramplin_250:
+	push 0xDEADC0DE
+	push 250
+	jmp make_context
+_tramplin_251:
+	push 0xDEADC0DE
+	push 251
+	jmp make_context
+_tramplin_252:
+	push 0xDEADC0DE
+	push 252
+	jmp make_context
+_tramplin_253:
+	push 0xDEADC0DE
+	push 253
+	jmp make_context
+_tramplin_254:
+	push 0xDEADC0DE
+	push 254
+	jmp make_context
+_tramplin_255:
+	push 0xDEADC0DE
+	push 255
+	jmp make_context

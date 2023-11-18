@@ -257,773 +257,1046 @@
 [GLOBAL _tramplin_254]
 [GLOBAL _tramplin_255]
 
-[EXTERN _handler]
+[EXTERN _switch_handlers]
+
+[GLOBAL _pop_context]
+
+_pop_context:
+	pop eax
+
+	pop esp
+	popa
+	pop gs
+	pop fs
+	pop es
+	pop ds
+
+	add esp, 4
+	add esp, 4
+	iretd
+
+
+make_context:
+	push ds
+	push es
+	push fs
+	push gs
+	pusha
+	push esp
+	call _switch_handlers
+
 
 _tramplin_0:
-    push 0
-    call _handler
+	push 0xDEADC0DE
+	push 0
+	jmp make_context
 _tramplin_1:
-    push 1
-    call _handler
+	push 0xDEADC0DE
+	push 1
+	jmp make_context
 _tramplin_2:
-    push 2
-    call _handler
+	push 0xDEADC0DE
+	push 2
+	jmp make_context
 _tramplin_3:
-    push 3
-    call _handler
+	push 0xDEADC0DE
+	push 3
+	jmp make_context
 _tramplin_4:
-    push 4
-    call _handler
+	push 0xDEADC0DE
+	push 4
+	jmp make_context
 _tramplin_5:
-    push 5
-    call _handler
+	push 0xDEADC0DE
+	push 5
+	jmp make_context
 _tramplin_6:
-    push 6
-    call _handler
+	push 0xDEADC0DE
+	push 6
+	jmp make_context
 _tramplin_7:
-    push 7
-    call _handler
+	push 0xDEADC0DE
+	push 7
+	jmp make_context
 _tramplin_8:
-    push 8
-    call _handler
+	push 8
+	jmp make_context
 _tramplin_9:
-    push 9
-    call _handler
+	push 0xDEADC0DE
+	push 9
+	jmp make_context
 _tramplin_10:
-    push 10
-    call _handler
+	push 10
+	jmp make_context
 _tramplin_11:
-    push 11
-    call _handler
+	push 11
+	jmp make_context
 _tramplin_12:
-    push 12
-    call _handler
+	push 12
+	jmp make_context
 _tramplin_13:
-    push 13
-    call _handler
+	push 13
+	jmp make_context
 _tramplin_14:
-    push 14
-    call _handler
+	push 14
+	jmp make_context
 _tramplin_15:
-    push 15
-    call _handler
+	push 0xDEADC0DE
+	push 15
+	jmp make_context
 _tramplin_16:
-    push 16
-    call _handler
+	push 0xDEADC0DE
+	push 16
+	jmp make_context
 _tramplin_17:
-    push 17
-    call _handler
+	push 17
+	jmp make_context
 _tramplin_18:
-    push 18
-    call _handler
+	push 0xDEADC0DE
+	push 18
+	jmp make_context
 _tramplin_19:
-    push 19
-    call _handler
+	push 0xDEADC0DE
+	push 19
+	jmp make_context
 _tramplin_20:
-    push 20
-    call _handler
+	push 0xDEADC0DE
+	push 20
+	jmp make_context
 _tramplin_21:
-    push 21
-    call _handler
+	push 21
+	jmp make_context
 _tramplin_22:
-    push 22
-    call _handler
+	push 0xDEADC0DE
+	push 22
+	jmp make_context
 _tramplin_23:
-    push 23
-    call _handler
+	push 0xDEADC0DE
+	push 23
+	jmp make_context
 _tramplin_24:
-    push 24
-    call _handler
+	push 0xDEADC0DE
+	push 24
+	jmp make_context
 _tramplin_25:
-    push 25
-    call _handler
+	push 0xDEADC0DE
+	push 25
+	jmp make_context
 _tramplin_26:
-    push 26
-    call _handler
+	push 0xDEADC0DE
+	push 26
+	jmp make_context
 _tramplin_27:
-    push 27
-    call _handler
+	push 0xDEADC0DE
+	push 27
+	jmp make_context
 _tramplin_28:
-    push 28
-    call _handler
+	push 0xDEADC0DE
+	push 28
+	jmp make_context
 _tramplin_29:
-    push 29
-    call _handler
+	push 29
+	jmp make_context
 _tramplin_30:
-    push 30
-    call _handler
+	push 30
+	jmp make_context
 _tramplin_31:
-    push 31
-    call _handler
+	push 0xDEADC0DE
+	push 31
+	jmp make_context
 _tramplin_32:
-    push 32
-    call _handler
+	push 0xDEADC0DE
+	push 32
+	jmp make_context
 _tramplin_33:
-    push 33
-    call _handler
+	push 0xDEADC0DE
+	push 33
+	jmp make_context
 _tramplin_34:
-    push 34
-    call _handler
+	push 0xDEADC0DE
+	push 34
+	jmp make_context
 _tramplin_35:
-    push 35
-    call _handler
+	push 0xDEADC0DE
+	push 35
+	jmp make_context
 _tramplin_36:
-    push 36
-    call _handler
+	push 0xDEADC0DE
+	push 36
+	jmp make_context
 _tramplin_37:
-    push 37
-    call _handler
+	push 0xDEADC0DE
+	push 37
+	jmp make_context
 _tramplin_38:
-    push 38
-    call _handler
+	push 0xDEADC0DE
+	push 38
+	jmp make_context
 _tramplin_39:
-    push 39
-    call _handler
+	push 0xDEADC0DE
+	push 39
+	jmp make_context
 _tramplin_40:
-    push 40
-    call _handler
+	push 0xDEADC0DE
+	push 40
+	jmp make_context
 _tramplin_41:
-    push 41
-    call _handler
+	push 0xDEADC0DE
+	push 41
+	jmp make_context
 _tramplin_42:
-    push 42
-    call _handler
+	push 0xDEADC0DE
+	push 42
+	jmp make_context
 _tramplin_43:
-    push 43
-    call _handler
+	push 0xDEADC0DE
+	push 43
+	jmp make_context
 _tramplin_44:
-    push 44
-    call _handler
+	push 0xDEADC0DE
+	push 44
+	jmp make_context
 _tramplin_45:
-    push 45
-    call _handler
+	push 0xDEADC0DE
+	push 45
+	jmp make_context
 _tramplin_46:
-    push 46
-    call _handler
+	push 0xDEADC0DE
+	push 46
+	jmp make_context
 _tramplin_47:
-    push 47
-    call _handler
+	push 0xDEADC0DE
+	push 47
+	jmp make_context
 _tramplin_48:
-    push 48
-    call _handler
+	push 0xDEADC0DE
+	push 48
+	jmp make_context
 _tramplin_49:
-    push 49
-    call _handler
+	push 0xDEADC0DE
+	push 49
+	jmp make_context
 _tramplin_50:
-    push 50
-    call _handler
+	push 0xDEADC0DE
+	push 50
+	jmp make_context
 _tramplin_51:
-    push 51
-    call _handler
+	push 0xDEADC0DE
+	push 51
+	jmp make_context
 _tramplin_52:
-    push 52
-    call _handler
+	push 0xDEADC0DE
+	push 52
+	jmp make_context
 _tramplin_53:
-    push 53
-    call _handler
+	push 0xDEADC0DE
+	push 53
+	jmp make_context
 _tramplin_54:
-    push 54
-    call _handler
+	push 0xDEADC0DE
+	push 54
+	jmp make_context
 _tramplin_55:
-    push 55
-    call _handler
+	push 0xDEADC0DE
+	push 55
+	jmp make_context
 _tramplin_56:
-    push 56
-    call _handler
+	push 0xDEADC0DE
+	push 56
+	jmp make_context
 _tramplin_57:
-    push 57
-    call _handler
+	push 0xDEADC0DE
+	push 57
+	jmp make_context
 _tramplin_58:
-    push 58
-    call _handler
+	push 0xDEADC0DE
+	push 58
+	jmp make_context
 _tramplin_59:
-    push 59
-    call _handler
+	push 0xDEADC0DE
+	push 59
+	jmp make_context
 _tramplin_60:
-    push 60
-    call _handler
+	push 0xDEADC0DE
+	push 60
+	jmp make_context
 _tramplin_61:
-    push 61
-    call _handler
+	push 0xDEADC0DE
+	push 61
+	jmp make_context
 _tramplin_62:
-    push 62
-    call _handler
+	push 0xDEADC0DE
+	push 62
+	jmp make_context
 _tramplin_63:
-    push 63
-    call _handler
+	push 0xDEADC0DE
+	push 63
+	jmp make_context
 _tramplin_64:
-    push 64
-    call _handler
+	push 0xDEADC0DE
+	push 64
+	jmp make_context
 _tramplin_65:
-    push 65
-    call _handler
+	push 0xDEADC0DE
+	push 65
+	jmp make_context
 _tramplin_66:
-    push 66
-    call _handler
+	push 0xDEADC0DE
+	push 66
+	jmp make_context
 _tramplin_67:
-    push 67
-    call _handler
+	push 0xDEADC0DE
+	push 67
+	jmp make_context
 _tramplin_68:
-    push 68
-    call _handler
+	push 0xDEADC0DE
+	push 68
+	jmp make_context
 _tramplin_69:
-    push 69
-    call _handler
+	push 0xDEADC0DE
+	push 69
+	jmp make_context
 _tramplin_70:
-    push 70
-    call _handler
+	push 0xDEADC0DE
+	push 70
+	jmp make_context
 _tramplin_71:
-    push 71
-    call _handler
+	push 0xDEADC0DE
+	push 71
+	jmp make_context
 _tramplin_72:
-    push 72
-    call _handler
+	push 0xDEADC0DE
+	push 72
+	jmp make_context
 _tramplin_73:
-    push 73
-    call _handler
+	push 0xDEADC0DE
+	push 73
+	jmp make_context
 _tramplin_74:
-    push 74
-    call _handler
+	push 0xDEADC0DE
+	push 74
+	jmp make_context
 _tramplin_75:
-    push 75
-    call _handler
+	push 0xDEADC0DE
+	push 75
+	jmp make_context
 _tramplin_76:
-    push 76
-    call _handler
+	push 0xDEADC0DE
+	push 76
+	jmp make_context
 _tramplin_77:
-    push 77
-    call _handler
+	push 0xDEADC0DE
+	push 77
+	jmp make_context
 _tramplin_78:
-    push 78
-    call _handler
+	push 0xDEADC0DE
+	push 78
+	jmp make_context
 _tramplin_79:
-    push 79
-    call _handler
+	push 0xDEADC0DE
+	push 79
+	jmp make_context
 _tramplin_80:
-    push 80
-    call _handler
+	push 0xDEADC0DE
+	push 80
+	jmp make_context
 _tramplin_81:
-    push 81
-    call _handler
+	push 0xDEADC0DE
+	push 81
+	jmp make_context
 _tramplin_82:
-    push 82
-    call _handler
+	push 0xDEADC0DE
+	push 82
+	jmp make_context
 _tramplin_83:
-    push 83
-    call _handler
+	push 0xDEADC0DE
+	push 83
+	jmp make_context
 _tramplin_84:
-    push 84
-    call _handler
+	push 0xDEADC0DE
+	push 84
+	jmp make_context
 _tramplin_85:
-    push 85
-    call _handler
+	push 0xDEADC0DE
+	push 85
+	jmp make_context
 _tramplin_86:
-    push 86
-    call _handler
+	push 0xDEADC0DE
+	push 86
+	jmp make_context
 _tramplin_87:
-    push 87
-    call _handler
+	push 0xDEADC0DE
+	push 87
+	jmp make_context
 _tramplin_88:
-    push 88
-    call _handler
+	push 0xDEADC0DE
+	push 88
+	jmp make_context
 _tramplin_89:
-    push 89
-    call _handler
+	push 0xDEADC0DE
+	push 89
+	jmp make_context
 _tramplin_90:
-    push 90
-    call _handler
+	push 0xDEADC0DE
+	push 90
+	jmp make_context
 _tramplin_91:
-    push 91
-    call _handler
+	push 0xDEADC0DE
+	push 91
+	jmp make_context
 _tramplin_92:
-    push 92
-    call _handler
+	push 0xDEADC0DE
+	push 92
+	jmp make_context
 _tramplin_93:
-    push 93
-    call _handler
+	push 0xDEADC0DE
+	push 93
+	jmp make_context
 _tramplin_94:
-    push 94
-    call _handler
+	push 0xDEADC0DE
+	push 94
+	jmp make_context
 _tramplin_95:
-    push 95
-    call _handler
+	push 0xDEADC0DE
+	push 95
+	jmp make_context
 _tramplin_96:
-    push 96
-    call _handler
+	push 0xDEADC0DE
+	push 96
+	jmp make_context
 _tramplin_97:
-    push 97
-    call _handler
+	push 0xDEADC0DE
+	push 97
+	jmp make_context
 _tramplin_98:
-    push 98
-    call _handler
+	push 0xDEADC0DE
+	push 98
+	jmp make_context
 _tramplin_99:
-    push 99
-    call _handler
+	push 0xDEADC0DE
+	push 99
+	jmp make_context
 _tramplin_100:
-    push 100
-    call _handler
+	push 0xDEADC0DE
+	push 100
+	jmp make_context
 _tramplin_101:
-    push 101
-    call _handler
+	push 0xDEADC0DE
+	push 101
+	jmp make_context
 _tramplin_102:
-    push 102
-    call _handler
+	push 0xDEADC0DE
+	push 102
+	jmp make_context
 _tramplin_103:
-    push 103
-    call _handler
+	push 0xDEADC0DE
+	push 103
+	jmp make_context
 _tramplin_104:
-    push 104
-    call _handler
+	push 0xDEADC0DE
+	push 104
+	jmp make_context
 _tramplin_105:
-    push 105
-    call _handler
+	push 0xDEADC0DE
+	push 105
+	jmp make_context
 _tramplin_106:
-    push 106
-    call _handler
+	push 0xDEADC0DE
+	push 106
+	jmp make_context
 _tramplin_107:
-    push 107
-    call _handler
+	push 0xDEADC0DE
+	push 107
+	jmp make_context
 _tramplin_108:
-    push 108
-    call _handler
+	push 0xDEADC0DE
+	push 108
+	jmp make_context
 _tramplin_109:
-    push 109
-    call _handler
+	push 0xDEADC0DE
+	push 109
+	jmp make_context
 _tramplin_110:
-    push 110
-    call _handler
+	push 0xDEADC0DE
+	push 110
+	jmp make_context
 _tramplin_111:
-    push 111
-    call _handler
+	push 0xDEADC0DE
+	push 111
+	jmp make_context
 _tramplin_112:
-    push 112
-    call _handler
+	push 0xDEADC0DE
+	push 112
+	jmp make_context
 _tramplin_113:
-    push 113
-    call _handler
+	push 0xDEADC0DE
+	push 113
+	jmp make_context
 _tramplin_114:
-    push 114
-    call _handler
+	push 0xDEADC0DE
+	push 114
+	jmp make_context
 _tramplin_115:
-    push 115
-    call _handler
+	push 0xDEADC0DE
+	push 115
+	jmp make_context
 _tramplin_116:
-    push 116
-    call _handler
+	push 0xDEADC0DE
+	push 116
+	jmp make_context
 _tramplin_117:
-    push 117
-    call _handler
+	push 0xDEADC0DE
+	push 117
+	jmp make_context
 _tramplin_118:
-    push 118
-    call _handler
+	push 0xDEADC0DE
+	push 118
+	jmp make_context
 _tramplin_119:
-    push 119
-    call _handler
+	push 0xDEADC0DE
+	push 119
+	jmp make_context
 _tramplin_120:
-    push 120
-    call _handler
+	push 0xDEADC0DE
+	push 120
+	jmp make_context
 _tramplin_121:
-    push 121
-    call _handler
+	push 0xDEADC0DE
+	push 121
+	jmp make_context
 _tramplin_122:
-    push 122
-    call _handler
+	push 0xDEADC0DE
+	push 122
+	jmp make_context
 _tramplin_123:
-    push 123
-    call _handler
+	push 0xDEADC0DE
+	push 123
+	jmp make_context
 _tramplin_124:
-    push 124
-    call _handler
+	push 0xDEADC0DE
+	push 124
+	jmp make_context
 _tramplin_125:
-    push 125
-    call _handler
+	push 0xDEADC0DE
+	push 125
+	jmp make_context
 _tramplin_126:
-    push 126
-    call _handler
+	push 0xDEADC0DE
+	push 126
+	jmp make_context
 _tramplin_127:
-    push 127
-    call _handler
+	push 0xDEADC0DE
+	push 127
+	jmp make_context
 _tramplin_128:
-    push 128
-    call _handler
+	push 0xDEADC0DE
+	push 128
+	jmp make_context
 _tramplin_129:
-    push 129
-    call _handler
+	push 0xDEADC0DE
+	push 129
+	jmp make_context
 _tramplin_130:
-    push 130
-    call _handler
+	push 0xDEADC0DE
+	push 130
+	jmp make_context
 _tramplin_131:
-    push 131
-    call _handler
+	push 0xDEADC0DE
+	push 131
+	jmp make_context
 _tramplin_132:
-    push 132
-    call _handler
+	push 0xDEADC0DE
+	push 132
+	jmp make_context
 _tramplin_133:
-    push 133
-    call _handler
+	push 0xDEADC0DE
+	push 133
+	jmp make_context
 _tramplin_134:
-    push 134
-    call _handler
+	push 0xDEADC0DE
+	push 134
+	jmp make_context
 _tramplin_135:
-    push 135
-    call _handler
+	push 0xDEADC0DE
+	push 135
+	jmp make_context
 _tramplin_136:
-    push 136
-    call _handler
+	push 0xDEADC0DE
+	push 136
+	jmp make_context
 _tramplin_137:
-    push 137
-    call _handler
+	push 0xDEADC0DE
+	push 137
+	jmp make_context
 _tramplin_138:
-    push 138
-    call _handler
+	push 0xDEADC0DE
+	push 138
+	jmp make_context
 _tramplin_139:
-    push 139
-    call _handler
+	push 0xDEADC0DE
+	push 139
+	jmp make_context
 _tramplin_140:
-    push 140
-    call _handler
+	push 0xDEADC0DE
+	push 140
+	jmp make_context
 _tramplin_141:
-    push 141
-    call _handler
+	push 0xDEADC0DE
+	push 141
+	jmp make_context
 _tramplin_142:
-    push 142
-    call _handler
+	push 0xDEADC0DE
+	push 142
+	jmp make_context
 _tramplin_143:
-    push 143
-    call _handler
+	push 0xDEADC0DE
+	push 143
+	jmp make_context
 _tramplin_144:
-    push 144
-    call _handler
+	push 0xDEADC0DE
+	push 144
+	jmp make_context
 _tramplin_145:
-    push 145
-    call _handler
+	push 0xDEADC0DE
+	push 145
+	jmp make_context
 _tramplin_146:
-    push 146
-    call _handler
+	push 0xDEADC0DE
+	push 146
+	jmp make_context
 _tramplin_147:
-    push 147
-    call _handler
+	push 0xDEADC0DE
+	push 147
+	jmp make_context
 _tramplin_148:
-    push 148
-    call _handler
+	push 0xDEADC0DE
+	push 148
+	jmp make_context
 _tramplin_149:
-    push 149
-    call _handler
+	push 0xDEADC0DE
+	push 149
+	jmp make_context
 _tramplin_150:
-    push 150
-    call _handler
+	push 0xDEADC0DE
+	push 150
+	jmp make_context
 _tramplin_151:
-    push 151
-    call _handler
+	push 0xDEADC0DE
+	push 151
+	jmp make_context
 _tramplin_152:
-    push 152
-    call _handler
+	push 0xDEADC0DE
+	push 152
+	jmp make_context
 _tramplin_153:
-    push 153
-    call _handler
+	push 0xDEADC0DE
+	push 153
+	jmp make_context
 _tramplin_154:
-    push 154
-    call _handler
+	push 0xDEADC0DE
+	push 154
+	jmp make_context
 _tramplin_155:
-    push 155
-    call _handler
+	push 0xDEADC0DE
+	push 155
+	jmp make_context
 _tramplin_156:
-    push 156
-    call _handler
+	push 0xDEADC0DE
+	push 156
+	jmp make_context
 _tramplin_157:
-    push 157
-    call _handler
+	push 0xDEADC0DE
+	push 157
+	jmp make_context
 _tramplin_158:
-    push 158
-    call _handler
+	push 0xDEADC0DE
+	push 158
+	jmp make_context
 _tramplin_159:
-    push 159
-    call _handler
+	push 0xDEADC0DE
+	push 159
+	jmp make_context
 _tramplin_160:
-    push 160
-    call _handler
+	push 0xDEADC0DE
+	push 160
+	jmp make_context
 _tramplin_161:
-    push 161
-    call _handler
+	push 0xDEADC0DE
+	push 161
+	jmp make_context
 _tramplin_162:
-    push 162
-    call _handler
+	push 0xDEADC0DE
+	push 162
+	jmp make_context
 _tramplin_163:
-    push 163
-    call _handler
+	push 0xDEADC0DE
+	push 163
+	jmp make_context
 _tramplin_164:
-    push 164
-    call _handler
+	push 0xDEADC0DE
+	push 164
+	jmp make_context
 _tramplin_165:
-    push 165
-    call _handler
+	push 0xDEADC0DE
+	push 165
+	jmp make_context
 _tramplin_166:
-    push 166
-    call _handler
+	push 0xDEADC0DE
+	push 166
+	jmp make_context
 _tramplin_167:
-    push 167
-    call _handler
+	push 0xDEADC0DE
+	push 167
+	jmp make_context
 _tramplin_168:
-    push 168
-    call _handler
+	push 0xDEADC0DE
+	push 168
+	jmp make_context
 _tramplin_169:
-    push 169
-    call _handler
+	push 0xDEADC0DE
+	push 169
+	jmp make_context
 _tramplin_170:
-    push 170
-    call _handler
+	push 0xDEADC0DE
+	push 170
+	jmp make_context
 _tramplin_171:
-    push 171
-    call _handler
+	push 0xDEADC0DE
+	push 171
+	jmp make_context
 _tramplin_172:
-    push 172
-    call _handler
+	push 0xDEADC0DE
+	push 172
+	jmp make_context
 _tramplin_173:
-    push 173
-    call _handler
+	push 0xDEADC0DE
+	push 173
+	jmp make_context
 _tramplin_174:
-    push 174
-    call _handler
+	push 0xDEADC0DE
+	push 174
+	jmp make_context
 _tramplin_175:
-    push 175
-    call _handler
+	push 0xDEADC0DE
+	push 175
+	jmp make_context
 _tramplin_176:
-    push 176
-    call _handler
+	push 0xDEADC0DE
+	push 176
+	jmp make_context
 _tramplin_177:
-    push 177
-    call _handler
+	push 0xDEADC0DE
+	push 177
+	jmp make_context
 _tramplin_178:
-    push 178
-    call _handler
+	push 0xDEADC0DE
+	push 178
+	jmp make_context
 _tramplin_179:
-    push 179
-    call _handler
+	push 0xDEADC0DE
+	push 179
+	jmp make_context
 _tramplin_180:
-    push 180
-    call _handler
+	push 0xDEADC0DE
+	push 180
+	jmp make_context
 _tramplin_181:
-    push 181
-    call _handler
+	push 0xDEADC0DE
+	push 181
+	jmp make_context
 _tramplin_182:
-    push 182
-    call _handler
+	push 0xDEADC0DE
+	push 182
+	jmp make_context
 _tramplin_183:
-    push 183
-    call _handler
+	push 0xDEADC0DE
+	push 183
+	jmp make_context
 _tramplin_184:
-    push 184
-    call _handler
+	push 0xDEADC0DE
+	push 184
+	jmp make_context
 _tramplin_185:
-    push 185
-    call _handler
+	push 0xDEADC0DE
+	push 185
+	jmp make_context
 _tramplin_186:
-    push 186
-    call _handler
+	push 0xDEADC0DE
+	push 186
+	jmp make_context
 _tramplin_187:
-    push 187
-    call _handler
+	push 0xDEADC0DE
+	push 187
+	jmp make_context
 _tramplin_188:
-    push 188
-    call _handler
+	push 0xDEADC0DE
+	push 188
+	jmp make_context
 _tramplin_189:
-    push 189
-    call _handler
+	push 0xDEADC0DE
+	push 189
+	jmp make_context
 _tramplin_190:
-    push 190
-    call _handler
+	push 0xDEADC0DE
+	push 190
+	jmp make_context
 _tramplin_191:
-    push 191
-    call _handler
+	push 0xDEADC0DE
+	push 191
+	jmp make_context
 _tramplin_192:
-    push 192
-    call _handler
+	push 0xDEADC0DE
+	push 192
+	jmp make_context
 _tramplin_193:
-    push 193
-    call _handler
+	push 0xDEADC0DE
+	push 193
+	jmp make_context
 _tramplin_194:
-    push 194
-    call _handler
+	push 0xDEADC0DE
+	push 194
+	jmp make_context
 _tramplin_195:
-    push 195
-    call _handler
+	push 0xDEADC0DE
+	push 195
+	jmp make_context
 _tramplin_196:
-    push 196
-    call _handler
+	push 0xDEADC0DE
+	push 196
+	jmp make_context
 _tramplin_197:
-    push 197
-    call _handler
+	push 0xDEADC0DE
+	push 197
+	jmp make_context
 _tramplin_198:
-    push 198
-    call _handler
+	push 0xDEADC0DE
+	push 198
+	jmp make_context
 _tramplin_199:
-    push 199
-    call _handler
+	push 0xDEADC0DE
+	push 199
+	jmp make_context
 _tramplin_200:
-    push 200
-    call _handler
+	push 0xDEADC0DE
+	push 200
+	jmp make_context
 _tramplin_201:
-    push 201
-    call _handler
+	push 0xDEADC0DE
+	push 201
+	jmp make_context
 _tramplin_202:
-    push 202
-    call _handler
+	push 0xDEADC0DE
+	push 202
+	jmp make_context
 _tramplin_203:
-    push 203
-    call _handler
+	push 0xDEADC0DE
+	push 203
+	jmp make_context
 _tramplin_204:
-    push 204
-    call _handler
+	push 0xDEADC0DE
+	push 204
+	jmp make_context
 _tramplin_205:
-    push 205
-    call _handler
+	push 0xDEADC0DE
+	push 205
+	jmp make_context
 _tramplin_206:
-    push 206
-    call _handler
+	push 0xDEADC0DE
+	push 206
+	jmp make_context
 _tramplin_207:
-    push 207
-    call _handler
+	push 0xDEADC0DE
+	push 207
+	jmp make_context
 _tramplin_208:
-    push 208
-    call _handler
+	push 0xDEADC0DE
+	push 208
+	jmp make_context
 _tramplin_209:
-    push 209
-    call _handler
+	push 0xDEADC0DE
+	push 209
+	jmp make_context
 _tramplin_210:
-    push 210
-    call _handler
+	push 0xDEADC0DE
+	push 210
+	jmp make_context
 _tramplin_211:
-    push 211
-    call _handler
+	push 0xDEADC0DE
+	push 211
+	jmp make_context
 _tramplin_212:
-    push 212
-    call _handler
+	push 0xDEADC0DE
+	push 212
+	jmp make_context
 _tramplin_213:
-    push 213
-    call _handler
+	push 0xDEADC0DE
+	push 213
+	jmp make_context
 _tramplin_214:
-    push 214
-    call _handler
+	push 0xDEADC0DE
+	push 214
+	jmp make_context
 _tramplin_215:
-    push 215
-    call _handler
+	push 0xDEADC0DE
+	push 215
+	jmp make_context
 _tramplin_216:
-    push 216
-    call _handler
+	push 0xDEADC0DE
+	push 216
+	jmp make_context
 _tramplin_217:
-    push 217
-    call _handler
+	push 0xDEADC0DE
+	push 217
+	jmp make_context
 _tramplin_218:
-    push 218
-    call _handler
+	push 0xDEADC0DE
+	push 218
+	jmp make_context
 _tramplin_219:
-    push 219
-    call _handler
+	push 0xDEADC0DE
+	push 219
+	jmp make_context
 _tramplin_220:
-    push 220
-    call _handler
+	push 0xDEADC0DE
+	push 220
+	jmp make_context
 _tramplin_221:
-    push 221
-    call _handler
+	push 0xDEADC0DE
+	push 221
+	jmp make_context
 _tramplin_222:
-    push 222
-    call _handler
+	push 0xDEADC0DE
+	push 222
+	jmp make_context
 _tramplin_223:
-    push 223
-    call _handler
+	push 0xDEADC0DE
+	push 223
+	jmp make_context
 _tramplin_224:
-    push 224
-    call _handler
+	push 0xDEADC0DE
+	push 224
+	jmp make_context
 _tramplin_225:
-    push 225
-    call _handler
+	push 0xDEADC0DE
+	push 225
+	jmp make_context
 _tramplin_226:
-    push 226
-    call _handler
+	push 0xDEADC0DE
+	push 226
+	jmp make_context
 _tramplin_227:
-    push 227
-    call _handler
+	push 0xDEADC0DE
+	push 227
+	jmp make_context
 _tramplin_228:
-    push 228
-    call _handler
+	push 0xDEADC0DE
+	push 228
+	jmp make_context
 _tramplin_229:
-    push 229
-    call _handler
+	push 0xDEADC0DE
+	push 229
+	jmp make_context
 _tramplin_230:
-    push 230
-    call _handler
+	push 0xDEADC0DE
+	push 230
+	jmp make_context
 _tramplin_231:
-    push 231
-    call _handler
+	push 0xDEADC0DE
+	push 231
+	jmp make_context
 _tramplin_232:
-    push 232
-    call _handler
+	push 0xDEADC0DE
+	push 232
+	jmp make_context
 _tramplin_233:
-    push 233
-    call _handler
+	push 0xDEADC0DE
+	push 233
+	jmp make_context
 _tramplin_234:
-    push 234
-    call _handler
+	push 0xDEADC0DE
+	push 234
+	jmp make_context
 _tramplin_235:
-    push 235
-    call _handler
+	push 0xDEADC0DE
+	push 235
+	jmp make_context
 _tramplin_236:
-    push 236
-    call _handler
+	push 0xDEADC0DE
+	push 236
+	jmp make_context
 _tramplin_237:
-    push 237
-    call _handler
+	push 0xDEADC0DE
+	push 237
+	jmp make_context
 _tramplin_238:
-    push 238
-    call _handler
+	push 0xDEADC0DE
+	push 238
+	jmp make_context
 _tramplin_239:
-    push 239
-    call _handler
+	push 0xDEADC0DE
+	push 239
+	jmp make_context
 _tramplin_240:
-    push 240
-    call _handler
+	push 0xDEADC0DE
+	push 240
+	jmp make_context
 _tramplin_241:
-    push 241
-    call _handler
+	push 0xDEADC0DE
+	push 241
+	jmp make_context
 _tramplin_242:
-    push 242
-    call _handler
+	push 0xDEADC0DE
+	push 242
+	jmp make_context
 _tramplin_243:
-    push 243
-    call _handler
+	push 0xDEADC0DE
+	push 243
+	jmp make_context
 _tramplin_244:
-    push 244
-    call _handler
+	push 0xDEADC0DE
+	push 244
+	jmp make_context
 _tramplin_245:
-    push 245
-    call _handler
+	push 0xDEADC0DE
+	push 245
+	jmp make_context
 _tramplin_246:
-    push 246
-    call _handler
+	push 0xDEADC0DE
+	push 246
+	jmp make_context
 _tramplin_247:
-    push 247
-    call _handler
+	push 0xDEADC0DE
+	push 247
+	jmp make_context
 _tramplin_248:
-    push 248
-    call _handler
+	push 0xDEADC0DE
+	push 248
+	jmp make_context
 _tramplin_249:
-    push 249
-    call _handler
+	push 0xDEADC0DE
+	push 249
+	jmp make_context
 _tramplin_250:
-    push 250
-    call _handler
+	push 0xDEADC0DE
+	push 250
+	jmp make_context
 _tramplin_251:
-    push 251
-    call _handler
+	push 0xDEADC0DE
+	push 251
+	jmp make_context
 _tramplin_252:
-    push 252
-    call _handler
+	push 0xDEADC0DE
+	push 252
+	jmp make_context
 _tramplin_253:
-    push 253
-    call _handler
+	push 0xDEADC0DE
+	push 253
+	jmp make_context
 _tramplin_254:
-    push 254
-    call _handler
+	push 0xDEADC0DE
+	push 254
+	jmp make_context
 _tramplin_255:
-    push 255
-    call _handler
+	push 0xDEADC0DE
+	push 255
+	jmp make_context

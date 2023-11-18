@@ -19,6 +19,5 @@ typedef struct {
 } IDT_Desc;
 #pragma pack(pop)
 
-void handler(unsigned short vector);
 
 void init_idt();
