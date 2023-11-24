@@ -14,7 +14,7 @@ void kernel_entry() {
   init_idt();
   init_pic();
   //mask_irq();
-  //mask_timer();
+  // mask_timer();
   
   // print_logo();
   //print_format("%x\n%d\n", 0xFE987514, 789654123);

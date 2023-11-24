@@ -2,7 +2,6 @@
 #include "tramplins.h"
 #include "../utils/utils.h"
 
-//TODO: fix if something wrong
 void init_tramplins_array(unsigned int tramplins[]) {
    	tramplins[0] = (u32)tramplin_0;
 	tramplins[1] = (u32)tramplin_1;
