@@ -16,20 +16,19 @@ void kernel_entry() {
   init_pic();
   //mask_irq();
   //mask_timer();
-  //asm ("int $0x42");
   // print_logo();
   //print_format("%x\n%d\n", 0xFE987514, 789654123);
   asm ( "sti" : :);
+  // asm ("int $0x50");
   for (int i = 0; 1; ++i) {
-    delay();
-    print_format("%x\n", i);
-  }
-
+    // delay();
+    print_format("%d\n", i);
   //for (;;);
+  }
 }
 
 void delay() {
-  for (int j = 0; j < 10000000; ++j) {
+  for (int j = 0; j < 1000000; ++j) {
     int a = j * j;
     int b = a;
   } 

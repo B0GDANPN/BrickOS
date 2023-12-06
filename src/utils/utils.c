@@ -39,21 +39,3 @@ void kernel_panic(char* str, ...) {
   va_end(args);
 }
 
-void send_eoi(int flag){
-  if (flag){
-    __asm__ __volatile__ (
-      // ".intel_syntax noprefix\n"
-      // "mov %al, $0x20\n"
-      // "out $0x20, %al\n"
-      // "out $0xA0, %al\n");
-      "mov $0x20, %al\n"
-      "out %al, $0x20\n"
-      "out %al, $0xA0\n");
-  }
-  else{
-    __asm__ __volatile__(
-      // ".intel_syntax noprefix\n"
-      "mov $0x20, %al\n"
-      "out %al, $0x20\n");
-  }
-}

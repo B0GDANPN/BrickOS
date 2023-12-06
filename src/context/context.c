@@ -2,6 +2,7 @@
 #include "../print/print.h"
 #include "../idt/idt.h"
 #include "context.h"
+#include "../pic/pic.h"
 
 
 typedef struct {
@@ -57,22 +58,24 @@ void default_handler(Context* ctx, unsigned short vector) {
 }
 
 void timer_handler(int error_code) {
-    print_format("Timer with error_code: %x", error_code);
+    print_format("Timer with error_code: %x\n", error_code);
 }
 
 
 void switch_handlers(Context* ctx){
-    print_format("%x\n", ctx);
+    // print_format("%x\n", ctx);
     u32 vector = ctx->vector;
     switch (vector)
     {
-    // case 0x20:
-    //     timer_handler(ctx->error_code);
+    case 0x20:
+        timer_handler(ctx->error_code);
+        send_eoi(0);
 
-    //     break;
+        break;
     
     default:
         default_handler(ctx, vector);
+        send_eoi(0);
         break;
     }
     pop_context(ctx);
