@@ -54,7 +54,7 @@ void default_handler(Context* ctx, unsigned short vector) {
     print_format("  CS = %x SS = TODO EIP = %x\n", ctx->cs, ctx->eip);
     print_format("  EFLAG = %x\n", ctx->eflags);
     print_format("  error code = %x\n", ctx->error_code);
-    
+    // TODO: panic
 }
 
 void timer_handler(int error_code) {
@@ -75,8 +75,8 @@ void switch_handlers(Context* ctx){
     
     default:
         default_handler(ctx, vector);
-        send_eoi(0);
+        send_eoi(0); // TODO: unreachable
         break;
     }
-    pop_context(ctx);
+    pop_context(ctx); // TODO: make simple return;
 }
