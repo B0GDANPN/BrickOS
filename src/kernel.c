@@ -19,7 +19,8 @@ void kernel_entry() {
   // print_logo();
   //print_format("%x\n%d\n", 0xFE987514, 789654123);
   asm ( "sti" : :);
-  // asm ("int $0x50");
+  fill_registers();
+  asm ("int $0x50");
   for (int i = 0; 1; ++i) {
     // delay();
     print_format("%d\n", i);

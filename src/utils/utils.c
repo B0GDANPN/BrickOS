@@ -27,7 +27,7 @@ void memset(void *dest, char ch, size_t count)
 
 void vkernel_panic(char* str, va_list args) {
   asm ( "cli" : :);
-  vga_clear_screen();
+  // vga_clear_screen();
   vprint_format(str, args);
   for(;;);
 }

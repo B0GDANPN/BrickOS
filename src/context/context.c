@@ -1,6 +1,7 @@
 #include "../utils/utils.h"
 #include "../print/print.h"
 #include "../idt/idt.h"
+#include "../utils/utils.h"
 #include "context.h"
 #include "../pic/pic.h"
 
@@ -54,6 +55,7 @@ void default_handler(Context* ctx, unsigned short vector) {
     print_format("  CS = %x SS = TODO EIP = %x\n", ctx->cs, ctx->eip);
     print_format("  EFLAG = %x\n", ctx->eflags);
     print_format("  error code = %x\n", ctx->error_code);
+    kernel_panic("END OF KERNEL PANIC!");
     // TODO: panic
 }
 
@@ -75,8 +77,8 @@ void switch_handlers(Context* ctx){
     
     default:
         default_handler(ctx, vector);
-        send_eoi(0); // TODO: unreachable
         break;
     }
-    pop_context(ctx); // TODO: make simple return;
+    //pop_context(ctx); // TODO: make simple return;
+    return;
 }

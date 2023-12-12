@@ -260,5 +260,3 @@ void tramplin_252();
 void tramplin_253();
 void tramplin_254();
 void tramplin_255();
-
-// мда

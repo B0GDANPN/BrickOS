@@ -259,21 +259,14 @@
 
 [EXTERN _switch_handlers]
 
-[GLOBAL _pop_context]
+[GLOBAL _fill_registers]
 
-_pop_context:
-	pop eax
+_fill_registers:
+	mov eax, 0xDEADC0DE
+	mov ebx, 0xDEADC0DE
+	mov ecx, 0xDEADC0DE
+	ret
 
-	pop esp
-	popa
-	pop gs
-	pop fs
-	pop es
-	pop ds
-
-	add esp, 4
-	add esp, 4
-	iretd
 
 
 make_context:
@@ -284,7 +277,16 @@ make_context:
 	pusha
 	push esp
 	call _switch_handlers
+	pop esp
+	popa
+	pop gs
+	pop fs
+	pop es
+	pop ds
 
+	add esp, 4
+	add esp, 4
+	iretd
 
 _tramplin_0:
 	push 0xDEADC0DE
