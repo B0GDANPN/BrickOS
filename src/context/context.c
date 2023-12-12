@@ -56,7 +56,6 @@ void default_handler(Context* ctx, unsigned short vector) {
     print_format("  EFLAG = %x\n", ctx->eflags);
     print_format("  error code = %x\n", ctx->error_code);
     kernel_panic("END OF KERNEL PANIC!");
-    // TODO: panic
 }
 
 void timer_handler(int error_code) {

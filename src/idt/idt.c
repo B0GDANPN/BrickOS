@@ -44,10 +44,10 @@ void init_idt() {
         );
 
         u8 dpl_and_gate_type;
-        if (vector <= 0x31) {
-          dpl_and_gate_type = 0b10001110;
-        } else {
+        if (vector <= 31) {
           dpl_and_gate_type = 0b10001111;
+        } else {
+          dpl_and_gate_type = 0b10001110;
         }
 
         Gate_Desc desc = (Gate_Desc){

@@ -262,9 +262,9 @@
 [GLOBAL _fill_registers]
 
 _fill_registers:
-	mov eax, 0xDEADC0DE
-	mov ebx, 0xDEADC0DE
-	mov ecx, 0xDEADC0DE
+	mov eax, 0xa
+	mov ebx, 0xb
+	mov ecx, 0xc
 	ret
 
 
