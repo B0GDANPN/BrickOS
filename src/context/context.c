@@ -69,7 +69,7 @@ void init_consoles(){
 
 
 Context* create_process(u32 process){
-    u32 esp_ptr = (u32)kernel_malloc(sizeof(BLOCK_SIZE)) + BLOCK_SIZE;
+    u32* esp_ptr = (u32*)kernel_malloc(sizeof(BLOCK_SIZE)) + BLOCK_SIZE;
     Context* ctx_ptr = (Context*)(esp_ptr - (sizeof(Context)));
     ctx_ptr->esp = 0;
     ctx_ptr->eax = 0;
@@ -93,6 +93,7 @@ Context* create_process(u32 process){
 }
 
 void init_contexts(){
+    
     process_context_pointers[0] = create_process((u32)process_1);
     process_context_pointers[1] = create_process((u32)process_2);
     // process_context_pointers[2] = create_process((u32)process_3);
