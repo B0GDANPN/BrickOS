@@ -9,7 +9,7 @@
 
 
 
-Context* process_context_pointers[2];
+Context* process_context_pointers[4];
 Console* consoles;
 int iter = -1;
 
@@ -62,8 +62,8 @@ void init_consoles(){
 
     init_console(consoles, 40, 12, 0, 0);
     init_console(consoles + 1, 40, 12, 40, 0);
-    // init_console(consoles + 2, 40, 12, 0, 12);
-    // init_console(consoles + 3, 40, 12, 40, 12);
+    init_console(consoles + 2, 40, 12, 0, 12);
+    init_console(consoles + 3, 40, 12, 40, 12);
 }
 
 
@@ -71,7 +71,7 @@ void init_consoles(){
 Context* create_process(u32 process){
     u32* esp_ptr = (u32*)kernel_malloc(sizeof(BLOCK_SIZE)) + BLOCK_SIZE;
     Context* ctx_ptr = (Context*)(esp_ptr - (sizeof(Context)));
-    ctx_ptr->esp = 0;
+    ctx_ptr->esp = ctx_ptr;
     ctx_ptr->eax = 0;
     ctx_ptr->ebx = 0;
     ctx_ptr->ecx = 0;
@@ -96,12 +96,11 @@ void init_contexts(){
     
     process_context_pointers[0] = create_process((u32)process_1);
     process_context_pointers[1] = create_process((u32)process_2);
-    // process_context_pointers[2] = create_process((u32)process_3);
-    // process_context_pointers[3] = create_process((u32)process_4);
+    process_context_pointers[2] = create_process((u32)process_3);
+    process_context_pointers[3] = create_process((u32)process_4);
 }
 
 void default_handler(Context* ctx, unsigned short vector) {
-    vga_clear_screen();
     print_format("Kernel panic: unhandled interrupt %x, interrupt process context:\n", vector);
     print_format("  EAX = %x ECX = %x EDX = %x EBX = %x\n", ctx->eax, ctx->ecx, ctx->edx, ctx->ebx);
     print_format("  ESP = %x EBP = %x ESI = %x EDI = %x\n", ctx->esp, ctx->ebp, ctx->esi, ctx->edi);
@@ -137,27 +136,23 @@ void copy_context(Context* dst, Context* src){
 
 
 
-void timer_handler(Context* context) {
+void timer_handler(Context** context) {
     if (iter == -1){
         iter = 0;
-        copy_context(context, process_context_pointers[iter]);
-        // default_handler(context, 0);
+        *context = process_context_pointers[iter];
         return;
     }
-    // default_handler(context, 0);
 
-    copy_context(process_context_pointers[iter], context);
-    iter = (iter + 1) % 2;
-    copy_context(context, process_context_pointers[iter]);
-    // default_handler(context, 0);
+    process_context_pointers[iter] = *context;
+    iter = (iter + 1) % 4;
+    *context = process_context_pointers[iter];
+    return;
 }
 
 void print_char_handler(Context* context){
     console_print_char(consoles + iter, context->eax);
     console_display(consoles + iter);
-    // if (iter == 3){
-    //     default_handler(context, 0);
-    // }
+    
 }
 
 void switch_handlers(Context* ctx){
@@ -165,7 +160,8 @@ void switch_handlers(Context* ctx){
     switch (vector)
     {
     case 0x20:
-        timer_handler(ctx);
+        timer_handler(&ctx);
+        // default_handler(ctx, 0);
         send_eoi(0);
         break; 
     case 100:
@@ -178,5 +174,4 @@ void switch_handlers(Context* ctx){
     }
     
     // load_context(ctx);
-    return;
 }

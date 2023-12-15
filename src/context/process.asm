@@ -26,7 +26,14 @@ _load_context:
     pop eax
     
 	pop esp
-	popa
+
+    ; pop eax
+    ; pop eax
+    ; pop eax
+    ; pop esp
+
+    popa
+
 	pop gs
 	pop fs
 	pop es

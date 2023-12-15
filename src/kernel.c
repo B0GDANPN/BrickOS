@@ -18,8 +18,6 @@ void kernel_entry()
   init_idt();
   init_pic();
 
-
-
   init_consoles();
   init_contexts();
 
