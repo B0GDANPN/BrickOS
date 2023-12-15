@@ -2,6 +2,11 @@
 
 #include "../utils/utils.h"
 
+
+#define START_OF_DISPLAY (short*)0xB8000
+#define END_OF_DISPLAY (short*)0xB8FA0
+#define COLOR_BLACK 0xf
+
 void vga_clear_screen();
 
 void print_char(char symbol);

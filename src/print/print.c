@@ -1,9 +1,6 @@
 #include "print.h"
 #include "../utils/utils.h"
 
-#define START_OF_DISPLAY (short*)0xB8000
-#define END_OF_DISPLAY (short*)0xB8FA0
-#define COLOR_BLACK 0xf
 
 static short* careet_ptr = START_OF_DISPLAY;
 
@@ -141,3 +138,5 @@ void print_format(char* str, ...) {
 	vprint_format(str, list);
   va_end(list);
 }
+
+void display_console(u8* buffer);

@@ -2,6 +2,11 @@
 
 #include "../utils/utils.h"
 
+
+#define BLOCK_SIZE 4096
+#define START_PTR (size_t*)0x100000
+#define END_PTR (size_t*)0x400000
+
 void init_alloc();
 
 void* kernel_malloc(size_t _Size);

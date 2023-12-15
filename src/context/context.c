@@ -4,47 +4,86 @@
 #include "../utils/utils.h"
 #include "context.h"
 #include "../pic/pic.h"
+#include "../console/console.h"
+#include "../alloc/alloc.h"
 
 
-typedef struct {
-    u32 edi;
-    u32 esi;
-    u32 ebp;
-    u32 esp;
-    u32 ebx;
-    u32 edx;
-    u32 ecx;
-    u32 eax;
+
+Context* process_context_pointers[4];
+Console* consoles;
+int iter = -1;
+
+void init_consoles(){
+    consoles = kernel_malloc(sizeof(Console) * 4);
+
+    init_console(consoles, 40, 12, 0, 0);
+    init_console(consoles + 1, 40, 12, 40, 0);
+    init_console(consoles + 2, 40, 12, 0, 12);
+    init_console(consoles + 3, 40, 12, 40, 12);
+}
+
+
+
+Context* create_process(u32 process){
+    u32 esp_ptr = (u32)kernel_malloc(sizeof(BLOCK_SIZE)) + BLOCK_SIZE;
+    Context* ctx_ptr = (Context*)(esp_ptr - (sizeof(Context)));
+    ctx_ptr->esp = (u32)ctx_ptr;
+    ctx_ptr->eax = 0;
+    ctx_ptr->ebx = 0;
+    ctx_ptr->ecx = 0;
+    ctx_ptr->edx = 0;
+    ctx_ptr->esi = 0;
+    ctx_ptr->edi = 0;
+    ctx_ptr->ebp = 0;
+    ctx_ptr->vector = 0;
+    ctx_ptr->error_code = 0;
+    ctx_ptr->eip = process;
+    ctx_ptr->cs = 0x8;
+    ctx_ptr->eflags = 0;
+    ctx_ptr->es = 0x10;
+    ctx_ptr->ds = 0x10;
+    ctx_ptr->fs = 0x10;
+    ctx_ptr->gs = 0x10;
+
+    return ctx_ptr;
+}
+
+void init_contexts(){
+    // u32 process_stack_pointers[4];
     
-    u16 gs;
-    u16 padding_1;
+    // for(int i = 0; i < 4; i++){
+    //     process_stack_pointers[i] = (u32)kernel_malloc(1024) + 4096 * 4;
+    // }
 
-    u16 fs;
-    u16 padding_2;
-    
-    u16 es;
-    u16 padding_3;
-    
-    u16 ds;
-    u16 padding_4;
-    
-    u32 vector;
-    u32 error_code;
+    process_context_pointers[0] = create_process((u32)process_method);
+    process_context_pointers[1] = create_process((u32)process_method);
+    process_context_pointers[2] = create_process((u32)process_method);
+    process_context_pointers[3] = create_process((u32)process_method);
 
-    u32 eip;
-    u16 cs;
-    u16 padding_5;
-    u32 eflags;
-
-    // u32 esp;
-
-    // u16 ss;
-    // u16 padding_6;
-
-} Context;
+}
 
 
-void pop_context(Context* ctx);
+void copy_context(Context* src, Context* dst){
+    // *dst = *src;
+    dst->esp = src->esp;
+    dst->eax = src->eax;
+    dst->ebx = src->ebx;
+    dst->ecx = src->ecx;
+    dst->edx = src->edx;
+    dst->esi = src->esi;
+    dst->edi = src->edi;
+    dst->ebp = src->ebp;
+    dst->vector = src->vector;
+    dst->error_code = src->error_code;
+    dst->eip = src->eip;
+
+    dst->cs = src->cs;
+    dst->eflags = src->eflags;
+    dst->es = src->es;
+    dst->ds = src->ds;
+    dst->fs = src->fs;
+    dst->gs = src->gs;
+}
 
 
 void default_handler(Context* ctx, unsigned short vector) {
@@ -58,26 +97,40 @@ void default_handler(Context* ctx, unsigned short vector) {
     kernel_panic("END OF KERNEL PANIC!");
 }
 
-void timer_handler(int error_code) {
-    print_format("Timer with error_code: %x\n", error_code);
+void timer_handler(Context* context) {
+    if (iter == -1){
+        iter = 0;
+        copy_context(process_context_pointers[iter], context);
+        return;
+    }
+
+    copy_context(context, process_context_pointers[iter]);
+    iter = (iter + 1) % 4;
+    copy_context(process_context_pointers[iter], context);
 }
 
+void print_char_handler(Context* context){
+    console_print_char(consoles + iter, context->eax);
+    console_display(consoles + iter);
+}
 
 void switch_handlers(Context* ctx){
-    // print_format("%x\n", ctx);
     u32 vector = ctx->vector;
     switch (vector)
     {
     case 0x20:
-        timer_handler(ctx->error_code);
+        timer_handler(ctx);
         send_eoi(0);
-
+        break; 
+    case 100:
+        print_char_handler(ctx);
         break;
-    
+
     default:
         default_handler(ctx, vector);
         break;
     }
-    //pop_context(ctx); // TODO: make simple return;
+    
+    // load_context(ctx);
     return;
 }

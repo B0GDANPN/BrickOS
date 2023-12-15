@@ -270,6 +270,7 @@ _fill_registers:
 
 
 make_context:
+
 	push ds
 	push es
 	push fs
@@ -284,8 +285,7 @@ make_context:
 	pop es
 	pop ds
 
-	add esp, 4
-	add esp, 4
+	add esp, 8
 	iretd
 
 _tramplin_0:
