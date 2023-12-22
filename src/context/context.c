@@ -13,47 +13,46 @@ Context* process_context_pointers[4];
 Console* consoles;
 int iter = -1;
 
-void process_print_char(u32 symbol){
+void process_print(u32 symbol, int is_address){
     asm ("mov %0, %%eax" : : "r"(symbol));
-    asm("int $0x64");
+    if (!is_address){
+        asm("int $0x64");
+    } else {
+        asm("int $0x66");
+    }
 }
 
 
 void process_1(){
     asm("sti");
     while(1){
-        process_print_char(iter + 48);
+        process_print(iter + 48, 0);
     }
 }
 
 void process_2(){
     asm("sti");
+    char* str = "Hello";
+
     while(1){
-        process_print_char('H');
-        process_print_char('E');
-        process_print_char('L');
-        process_print_char('L');
-        process_print_char('O');
+        process_print(str, 1);
     }
 }
 
 void process_3(){
     asm("sti");
     while(1){
-        process_print_char('*');
-        process_print_char('-');
+        process_print('*', 0);
+        process_print('-', 0);
     }
 }
 
 
 void process_4(){
     asm("sti");
+    char* str = "World";
     while(1){
-        process_print_char('W');
-        process_print_char('O');
-        process_print_char('R');
-        process_print_char('L');
-        process_print_char('D');
+        process_print(str, 1);
     }
 }
 
@@ -152,7 +151,11 @@ void timer_handler(Context** context) {
 void print_char_handler(Context* context){
     console_print_char(consoles + iter, context->eax);
     console_display(consoles + iter);
-    
+}
+
+void print_string_handler(Context* context){
+    console_print_string(consoles + iter, (char*)context->eax);
+    console_display(consoles + iter);
 }
 
 void switch_handlers(Context* ctx){
@@ -161,17 +164,18 @@ void switch_handlers(Context* ctx){
     {
     case 0x20:
         timer_handler(&ctx);
-        // default_handler(ctx, 0);
         send_eoi(0);
         break; 
-    case 100:
+    case 0x64:
         print_char_handler(ctx);
+        break;
+
+    case 0x66:
+        print_string_handler(ctx);
         break;
 
     default:
         default_handler(ctx, vector);
         break;
     }
-    
-    // load_context(ctx);
 }
