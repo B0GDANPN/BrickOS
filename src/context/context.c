@@ -35,7 +35,7 @@ void process_2(){
     char* str = "Hello";
 
     while(1){
-        process_print(str, 1);
+        process_print((u32)str, 1);
     }
 }
 
@@ -52,7 +52,7 @@ void process_4(){
     asm("sti");
     char* str = "World";
     while(1){
-        process_print(str, 1);
+        process_print((u32)str, 1);
     }
 }
 
@@ -70,7 +70,7 @@ void init_consoles(){
 Context* create_process(u32 process){
     u32* esp_ptr = (u32*)kernel_malloc(sizeof(BLOCK_SIZE)) + BLOCK_SIZE;
     Context* ctx_ptr = (Context*)(esp_ptr - (sizeof(Context)));
-    ctx_ptr->esp = ctx_ptr;
+    ctx_ptr->esp = 0;
     ctx_ptr->eax = 0;
     ctx_ptr->ebx = 0;
     ctx_ptr->ecx = 0;
