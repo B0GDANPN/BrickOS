@@ -24,14 +24,12 @@ void process_print(u32 symbol, int is_address){
 
 
 void process_1(){
-    asm("sti");
     while(1){
         process_print(iter + 48, 0);
     }
 }
 
 void process_2(){
-    asm("sti");
     char* str = "Hello";
 
     while(1){
@@ -40,7 +38,6 @@ void process_2(){
 }
 
 void process_3(){
-    asm("sti");
     while(1){
         process_print('*', 0);
         process_print('-', 0);
@@ -49,7 +46,6 @@ void process_3(){
 
 
 void process_4(){
-    asm("sti");
     char* str = "World";
     while(1){
         process_print((u32)str, 1);
@@ -82,7 +78,7 @@ Context* create_process(u32 process){
     ctx_ptr->error_code = 0;
     ctx_ptr->eip = process;
     ctx_ptr->cs = 0x8;
-    ctx_ptr->eflags = 0;
+    ctx_ptr->eflags = 0x0200;
     ctx_ptr->es = 0x10;
     ctx_ptr->ds = 0x10;
     ctx_ptr->fs = 0x10;
@@ -110,39 +106,12 @@ void default_handler(Context* ctx, unsigned short vector) {
     kernel_panic("END OF KERNEL PANIC!");
 }
 
-void copy_context(Context* dst, Context* src){
-    dst->edi = src->edi;
-    dst->esi = src->esi;
-    dst->ebp = src->ebp;
-    dst->esp = src->esp;
-    dst->ebx = src->ebx;
-    dst->edx = src->edx;
-    dst->ecx = src->ecx;
-    dst->eax = src->eax;
-
-    dst->gs = src->gs;
-    dst->fs = src->fs;
-    dst->es = src->es;
-    dst->ds = src->ds;
-
-    dst->vector = src->vector;
-    dst->error_code = src->error_code;
-    
-    dst->eip = src->eip;
-    dst->cs = src->cs;
-    dst->eflags = src->eflags;
-}
-
-
 
 void timer_handler(Context** context) {
-    if (iter == -1){
-        iter = 0;
-        *context = process_context_pointers[iter];
-        return;
+    if (iter != -1){
+        process_context_pointers[iter] = *context;
     }
 
-    process_context_pointers[iter] = *context;
     iter = (iter + 1) % 4;
     *context = process_context_pointers[iter];
     return;
