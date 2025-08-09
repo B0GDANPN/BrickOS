@@ -1,4 +1,13 @@
+
 build
 # scripts/tmp
 .vscode
 scripts/bx_enh_dbg.ini
+
+
+**/*.bin
+**/*.o
+**/*.tmp
+**/*.img
+**/*.ini
+
